@@ -9,8 +9,8 @@
 # 🎨 Aparência & Tema
 # ------------------------------
 theme = "catppuccin-mocha"
-background-opacity = 0.90
-gtk-titlebar = true
+background-opacity = 0.80
+gtk-titlebar = false
 maximize = true
 
 # ------------------------------
