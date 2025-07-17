@@ -1,41 +1,50 @@
 return {
-    {
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
-        -- branch = 'master',
-        -- lazy = false,
-        config = function()
-            require("nvim-treesitter.configs").setup({
-                ensure_installed = {
-                    "bash",
-                    "html",
-                    "css",
-                    "scss",
-                    "javascript",
-                    "typescript",
-                    "json",
-                    "jsonc",
-                    "lua",
-                    "tsx",
-                    "vue",
-                    "vimdoc",
-                    "yaml",
-                    "dockerfile",
-                },
-                -- Install parsers synchronously (only applied to `ensure_installed`)
-                sync_install = false,
-                -- Automatically install missing parsers when entering buffer
-                -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-                auto_install = true,
-                indent = {
-                    enable = true
-                },
-                highlight = {
-                    -- `false` will disable the whole extension
-                    enable = true,
-                },
-                -- autotage = { enable = true },
-            })
+  {
+    "nvim-treesitter/nvim-treesitter",
+    lazy = false,
+    branch = 'main',
+    build = ":TSUpdate",
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        ensure_installed = {
+          "bash",
+          "c",
+          "diff",
+          "html",
+          "css",
+          "scss",
+          "javascript",
+          "typescript",
+          "json",
+          "jsonc",
+          "lua",
+          "luadoc",
+          "luap",
+          "markdown",
+          "markdown_inline",
+          "toml",
+          "tsx",
+          "vue",
+          "vim",
+          "vimdoc",
+          "xml",
+          "yaml",
+          "dockerfile",
+        },
+        -- Install parsers synchronously (only applied to `ensure_installed`)
+        sync_install = false,
+        -- Automatically install missing parsers when entering buffer
+        -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+        auto_install = true,
+        indent = {
+          enable = true
+        },
+        highlight = {
+          -- `false` will disable the whole extension
+          enable = true,
+        },
+        -- autotage = { enable = true },
+      })
 
             local treesitter_parser_config = require("nvim-treesitter.parsers").get_parser_configs()
             treesitter_parser_config.templ = {

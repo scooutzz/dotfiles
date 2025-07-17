@@ -31,9 +31,3 @@ vim.opt.undofile = true
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
-
--- Navigate vim panes better
-vim.keymap.set('n', '<c-h>', ':wincmd h<CR>')
-vim.keymap.set('n', '<c-j>', ':wincmd j<CR>')
-vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')
-vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')

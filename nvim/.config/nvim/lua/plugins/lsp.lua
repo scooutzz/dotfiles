@@ -15,10 +15,10 @@ return {
   },
   config = function()
     require("conform").setup({
-      formatters_by_ft = {}
+      formatters_by_ft = {},
     })
 
-    local cmp = require('cmp')
+    local cmp = require("cmp")
     local cmp_lsp = require("cmp_nvim_lsp")
     local capabilities = vim.tbl_deep_extend(
       "force",
@@ -27,113 +27,102 @@ return {
       cmp_lsp.default_capabilities()
     )
 
+    local lspconfig = require("lspconfig")
+
     require("fidget").setup({})
-    require("mason").setup({})
+
+    require("mason").setup({
+      ui = {
+        icons = {
+          package_installed = "✓",
+          package_pending = "➜",
+          package_uninstalled = "✗",
+        },
+      },
+    })
+
     require("mason-lspconfig").setup({
       ensure_installed = {
         "lua_ls",
-        "ts_ls",
         "vue_ls",
         "vtsls",
         "eslint",
         "html",
+        "emmet_ls",
       },
       handlers = {
-        function(server_name) -- default handler (optional)
-          require("lspconfig")[server_name].setup {
-            capabilities = capabilities
-          }
+        -- Default handler
+        function(server_name)
+          local lsp = require("lspconfig")[server_name]
+          if lsp then
+            lsp.setup({
+              capabilities = capabilities,
+            })
+          end
         end,
 
-        zls = function()
-          local lspconfig = require("lspconfig")
-          lspconfig.zls.setup({
-            root_dir = lspconfig.util.root_pattern(".git", "build.zig", "zls.json"),
-            settings = {
-              zls = {
-                enable_inslay_hints = true,
-                enable_snippets = true,
-                warn_style = true,
-              },
+        ["vue_ls"] = function()
+          require("lspconfig").vue_ls.setup({
+            capabilities = capabilities,
+            init_options = {
+              typescript = {
+                serverPath = "/home/relaxou/.nvm/versions/node/v20.17.0/bin/vtsls",
+              }
+            }
+          })
+        end,
+
+        ["vtsls"] = function()
+          require("lspconfig").vtsls.setup({
+            capabilities = capabilities,
+          })
+        end,
+
+        ["eslint"] = function()
+          lspconfig.eslint.setup({
+            capabilities = capabilities,
+            filetypes = { "vue", "typescript", "javascript" },
+          })
+        end,
+
+        ["emmet_ls"] = function()
+          lspconfig.emmet_ls.setup({
+            capabilities = capabilities,
+            filetypes = {
+              "html",
+              "typescriptreact",
+              "javascriptreact",
+              "css",
+              "sass",
+              "scss",
+              "less",
+              "svelte",
             },
           })
-          vim.g.zig_fmt_parse_errors = 0
-          vim.g.zig_fmt_autosave = 0
-
         end,
 
         ["lua_ls"] = function()
-          local lspconfig = require("lspconfig")
-          lspconfig.lua_ls.setup {
+          lspconfig.lua_ls.setup({
             capabilities = capabilities,
             settings = {
               Lua = {
-                format = {
-                  enable = true,
-                  -- Put format options here
-                  -- NOTE: the value shosuld be STRING!!
-                  defaultConfig = {
-                    indent_style = "space",
-                    indent_size = "2",
-                  }
-                },
-                -- make the language server recognize "vim" global
                 diagnostics = {
                   globals = { "vim" },
                 },
                 completion = {
                   callSnippet = "Replace",
                 },
-              }
-            }
-          }
-        end,
-
-        ["ts_ls"] = function()
-          local lspconfig = require("lspconfig")
-          lspconfig.ts_ls.setup {
-            capabilities = capabilities,
-          }
-        end,
-
-        ["emmet_ls"] = function()
-          local lspconfig = require("lspconfig")
-          lspconfig.emmet_ls.setup {
-            capabilities = capabilities,
-            filetypes = { "html", "css", "sass", "scss", "vue" },
-          }
-        end,
-
-        ["eslint"] = function ()
-          local lspconfig = require("lspconfig")
-          lspconfig.eslint.setup {
-            capabilities = capabilities,
-            filetypes = { "vue", "typescript", "javascript" },
-          }
+              },
+            },
+          })
         end,
 
         ["html"] = function()
-          local lspconfig = require("lspconfig")
-          lspconfig.html.setup {
+          lspconfig.html.setup({
             capabilities = capabilities,
-          }
+          })
         end,
-
-        ["vtsls"] = function()
-          local lspconfig = require("lspconfig")
-          lspconfig.vtsls.setup {
-            capabilities = capabilities,
-          }
-        end,
-
-        ["vue_ls"] = function()
-          local lspconfig = require("lspconfig")
-          lspconfig.vue_ls.setup {
-            capabilities = capabilities,
-            init_options = {},
-          }
-        end,
-      }
+      },
     })
 
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -141,34 +130,33 @@ return {
     cmp.setup({
       snippet = {
         expand = function(args)
-          require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+          require("luasnip").lsp_expand(args.body)
         end,
       },
       mapping = cmp.mapping.preset.insert({
-        ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-        ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+        ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+        ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+        ["<C-y>"] = cmp.mapping.confirm({ select = true }),
         ["<C-Space>"] = cmp.mapping.complete(),
       }),
       sources = cmp.config.sources({
         { name = "copilot", group_index = 2 },
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' }, -- For luasnip users.
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
       }, {
-          { name = 'buffer' },
-        })
+          { name = "buffer" },
+        }),
     })
 
     vim.diagnostic.config({
-      -- update_in_insert = true,
       float = {
         focusable = false,
         style = "minimal",
         border = "rounded",
         source = "always",
         header = "",
-        prefix = ""
-      }
+        prefix = "",
+      },
     })
 
     vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
@@ -177,6 +165,7 @@ return {
     vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
     vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
     vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
-    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, {})
+    vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, {})
   end,
 }
+
