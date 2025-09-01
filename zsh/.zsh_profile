@@ -1,0 +1,14 @@
+export XDG_CONFIG_HOME=$HOME/.config
+VIM="nvim"
+
+# Tmux Sessionizer
+bindkey -s ^f "tmux-sessionizer\n"
+bindkey -s '\ej' "tmux-sessionizer -s 0\n"
+bindkey -s '\ek' "tmux-sessionizer -s 1\n"
+bindkey -s '\el' "tmux-sessionizer -s 2\n"
+bindkey -s '\e;' "tmux-sessionizer -s 3\n"
+
+eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
+# eval $(gnome-keyring-daemon --start)
+export SSH_AUTH_SOCK
+export SSH_AGENT_LAUNCHER=gnome-keyring
