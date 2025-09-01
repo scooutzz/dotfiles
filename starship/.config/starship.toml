@@ -1,0 +1,67 @@
+format = """
+$directory
+$character
+"""
+
+right_format = """
+$git_branch
+$git_state
+$git_status
+$nodejs
+$python
+$php
+$docker_context
+$cmd_duration
+$status
+"""
+
+add_newline = true
+
+[directory]
+style = "bold cyan"
+read_only = "🔒"
+truncation_length = 10
+truncate_to_repo = true
+
+[character]
+success_symbol = "[➜](green)"
+error_symbol = "[✗](red)"
+
+[git_branch]
+format = " [ $branch]($style)"
+style = "purple"
+
+[git_status]
+format = '([$all_status$ahead_behind]($style))'
+style = "red"
+
+[nodejs]
+format = " [⬢ $version]($style)"
+style = "green"
+disabled = false
+
+[python]
+format = " [🐍 $version]($style)"
+style = "yellow"
+disabled = false
+
+[php]
+format = " [🐘 $version]($style)"
+style = "magenta"
+disabled = false
+
+[docker_context]
+format = " [🐳 $context]($style)"
+style = "blue"
+disabled = false
+
+[cmd_duration]
+format = " [⏱ $duration]($style)"
+style = "bold yellow"
+min_time = 2000
+
+[status]
+format = " [✗ $status]($style)"
+style = "bold red"
+disabled = false
+
