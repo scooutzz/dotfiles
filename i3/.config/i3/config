@@ -13,14 +13,15 @@ set $mod Mod4
 
 # Startup script
 exec --no-startup-id ~/.config/i3/startup.sh
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
 
 # Exec keyboard layout switcher us <-> us, us intl variant
-exec --no-startup-id setxkbmap -layout us,us -variant intl, -option grp:alt_shift_toggle
+exec_always --no-startup-id setxkbmap -layout us,us -variant intl, -option grp:alt_shift_toggle
 
 # Start Picom
 exec --no-startup-id picom --config ~/.config/picom/picom.conf
 # Start feh
-exec_always --no-startup-id feh --bg-scale ~/.config/backgrounds/homersimpson.jpg
+exec_always --no-startup-id feh --bg-scale ~/.config/backgrounds/buildings.jpg
 
 # kill any hanging polybar processes
 exec_always killall polybar
@@ -67,7 +68,7 @@ bindsym $mod+Shift+x exec i3lock-fancy
 # Shutdown
 bindsym $mod+Shift+End exec systemctl poweroff
 bindsym Print exec flameshot gui
-bindsym $mod+g exec flatpak run app.zen_browser.zen
+bindsym $mod+b exec flatpak run app.zen_browser.zen
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
