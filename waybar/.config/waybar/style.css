@@ -1,0 +1,91 @@
+@define-color bg    #191724;
+@define-color fg    #a9b1d6;
+@define-color blk   #26233a;
+@define-color lve   #eb6f92;
+@define-color gld   #f6c177;
+@define-color rse   #ebbcba;
+@define-color pne   #31748f;
+@define-color irs   #c4a7e7;
+@define-color fom   #9ccfd8;
+@define-color brblk #444b6a;
+@define-color wht   #ffffff;
+
+* {
+  font-family: "JetBrainsMono Nerd Mono", monospace;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+window#waybar {
+  background-color: @bg;
+  color: @fg;
+}
+
+#workspaces button {
+  padding: 0 6px;
+  color: @irs;
+  background: transparent;
+  border-bottom: 3px solid @bg;
+}
+#workspaces button.active {
+  color: @irs;
+  border-bottom: 3px solid @rse;
+}
+#workspaces button.empty {
+  color: @wht;
+}
+#workspaces button.empty.active {
+  color: @irs;
+  border-bottom: 3px solid @rse;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#network,
+#pulseaudio,
+#tray {
+  padding: 0 10px;
+  color: @wht;
+}
+
+#custom-sep {
+  color: @brblk;
+}
+
+#clock {
+  color: @rse;
+  border-bottom: 4px solid @rse;
+}
+
+#battery {
+  color: @irs;
+  border-bottom: 4px solid @irs;
+}
+
+#disk {
+  color: @gld;
+  border-bottom: 4px solid @gld;
+}
+
+#memory {
+  color: @irs;
+  border-bottom: 4px solid @irs;
+}
+
+#cpu {
+  color: @pne;
+  border-bottom: 4px solid @pne;
+}
+
+#network {
+  color: @fom;
+  border-bottom: 4px solid @fom;
+}
+
+#pulseaudio {
+  color: @lve;
+  border-bottom: 4px solid @lve;
+}

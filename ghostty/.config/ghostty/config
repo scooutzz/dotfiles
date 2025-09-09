@@ -1,15 +1,8 @@
-# theme = catppuccin-mocha
-# font-family = JetBrainsMono Nerd Font
-# font-size = 14
-# gtk-titlebar = true
-# background-opacity = 0.95
-# maximize = true
-
 # ------------------------------
 # 🎨 Aparência & Tema
 # ------------------------------
-theme = "catppuccin-mocha"
-background-opacity = 0.80
+theme = "rose-pine"
+background-opacity = 0.85
 gtk-titlebar = false
 maximize = true
 
@@ -17,17 +10,5 @@ maximize = true
 # 🔤 Fonte
 # ------------------------------
 font-family = "JetBrainsMono Nerd Font"
-font-size = 12
+font-size = 14
 font-feature = ["+liga", "+calt"]
-
-# ------------------------------
-# 🧪 Observações
-# ------------------------------
-# O Ghostty ainda não suporta:
-# - font-ligatures
-# - font-antialias
-# - cursor-shape ou cursor-blink
-# - scrollbar ou blur-background
-
-# Essas opções devem ser deixadas de fora ou o programa vai quebrar
-
