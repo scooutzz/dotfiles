@@ -14,7 +14,8 @@
     "memory",
     "tray",
     // "custom/lock",
-    "custom/power_menu"
+    "custom/swaync",
+    "custom/power_menu",
   ],
   "hyprland/workspaces": {
     "format": "{name} {icon}",
@@ -71,8 +72,29 @@
   // },
   "custom/power_menu": {
     "tooltip": false,
-    "on-click": "wlogout",
+    "on-click": "wlogout -b 5",
     "format": "⏻",
+  },
+  "custom/swaync": {
+    "tooltip": true,
+    "tooltip-format": "Left Click: Launch Notification Center\nRight Click: Do not Disturb Toggle",
+    "format": "{} {icon}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "sleep 0.1 && swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true,
   }
 }
 

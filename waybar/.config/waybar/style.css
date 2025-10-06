@@ -1,3 +1,6 @@
+@import "matugen/matugen-waybar.css";
+/* @import "/home/relaxou/.cache/wal/colors-waybar.css"; */
+
 * {
   font-family: JetbrainsMono Nerd Font;
   font-size: 16px;
@@ -9,29 +12,29 @@
 
 #waybar {
   background: transparent;
-  color: #c6d0f5;
+  color: @primary;
   margin: 2px 2px;
 }
 
 #workspaces {
   border-radius: 5px;
   margin: 5px 0;
-  background: #101010;
+  background: @background;
 }
 
 #workspaces button {
-  color: #babbf1;
+  color: @inverse_primary;
   border-radius: 5px;
   padding: 0.4rem;
 }
 
 #workspaces button.active {
-  color: #99d1db;
+  color: @primary;
   border-radius: 5px;
 }
 
 #workspaces button:hover {
-  color: #85c1dc;
+  color: @hover;
   border-radius: 5px;
 }
 
@@ -46,15 +49,16 @@
 #memory,
 #custom-lock,
 #custom-power,
-#custom-power_menu {
-  background-color: #101010;
+#custom-power_menu,
+#custom-swaync {
+  background-color: @background;
   padding: 0.5rem 1rem;
   margin: 5px 0;
   border-radius: 0px 5px 5px 0px;
 }
 
 #custom-stream_status {
-  background-color: #101010;
+  background-color: @background;
   padding: 0.5rem 1rem;
   margin: 5px 0;
   border-radius: 0px 5px 5px 0px;
@@ -69,21 +73,23 @@
 }
 
 #custom-stream_status.down {
-  color: #ea999c;
+  color: #f7768e;
 }
 
 #memory {
-  border-radius: 0px 5px 5px 0px;
+  /* border-radius: 0px 5px 5px 0px; */
+  margin-left: 0.5rem;
+  border-radius: 5px;
 }
 
 #clock {
-  color: #8caaee;
+  color: @primary;
   border-radius: 5px;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
 }
 
 #battery {
-  color: #a6d189;
+  color: @primary;
 }
 
 #battery.charging {
@@ -105,27 +111,28 @@
 }
 
 #pulseaudio {
-  color: #ea999c;
   border-radius: 5px 0 0 5px;
 }
 
 #custom-music {
-  color: #ca9ee6;
   border-radius: 5px;
 }
 
 #custom-lock {
   border-radius: 5px;
-  color: #babbf1;
 }
 
 #custom-power_menu {
+  margin-left: 0.5rem;
   border-radius: 5px;
-  color: #babbf1;
+}
+
+#custom-swaync {
+  margin-left: 0.5rem;
+  border-radius: 5px;
 }
 
 #tray {
-  margin-right: 1rem;
-  margin-left: 1rem;
+  margin-left: 0.5rem;
   border-radius: 5px;
 }
