@@ -1,0 +1,10 @@
+/* ----------- 💫 https://github.com/JaKooLit 💫 -------- */
+/* swaync colors - wallust from waybar.css */
+
+/* @import "/home/relaxou/.config/waybar/colors.css"; */
+/* @import "themes/control_center.css"; */
+/* @import "themes/notifications.css"; */
+
+@import "matugen/notifications.css";
+@import "matugen/control_center.css";
+@import "matugen/matugen-swaync.css";
