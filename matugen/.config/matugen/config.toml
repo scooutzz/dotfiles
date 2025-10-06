@@ -1,0 +1,89 @@
+# Global Configs
+[config]
+version_check = false
+
+# Walllpaper
+[config.wallpaper]
+command = "swww"
+arguments = ["img", "--transition-type", "center", "--transition-step", "15", "--transition-fps", "60"]
+set = false
+
+# Hyprland
+[templates.hyprland]
+input_path = '/home/relaxou/.config/matugen/templates/hyprland-colors.conf'
+output_path = '~/.config/hypr/matugen/hyprland-colors.conf'
+post_hook = 'hyprctl reload' # Command to run after applying the template
+
+# Hyprlock
+[templates.hyprlock]
+input_path = '/home/relaxou/.config/matugen/templates/hyprlock.conf'
+output_path = '~/.config/hypr/hyprlock/matugen/matugen-hyprlock.conf'
+
+# Waybar
+[templates.waybar]
+input_path = '/home/relaxou/.config/matugen/templates/waybar.css'
+output_path = '~/.config/waybar/matugen/matugen-waybar.css'
+post_hook = 'pkill -SIGUSR2 waybar'
+
+# Wlogout
+[templates.wlogout]
+input_path = '/home/relaxou/.config/matugen/templates/colors.css'
+output_path = '~/.config/wlogout/colors.css'
+
+# Wofi
+[templates.wofi]
+input_path = '/home/relaxou/.config/matugen/templates/colors.css'
+output_path = '~/.config/wofi/colors.css'
+
+# Rofi
+[templates.rofi]
+input_path = '~/.config/matugen/templates/rofi.rasi'
+output_path = '~/.config/rofi/matugen/matugen-rofi.rasi'
+
+# Kitty
+[templates.kitty]
+input_path = '/home/relaxou/.config/matugen/templates/kitty-colors.conf'
+output_path = '~/.config/kitty/colors.conf'
+post_hook = 'pkill -SIGUSR1 kitty'
+
+# Swaync
+[templates.swaync]
+input_path = '~/.config/matugen/templates/swaync.css'
+output_path = '~/.config/swaync/matugen/matugen-swaync.css'
+post_hook = 'swaync-client -rs'
+
+# Cava
+[templates.cava]
+input_path = '~/.config/matugen/templates/cava'
+output_path = '~/.config/cava/config'
+post_hook = 'pkill -SIGUSR1 cava'
+
+# Gtk3
+[templates.gtk3]
+input_path = '~/.config/matugen/templates/gtk.css'
+output_path = '~/.config/gtk-3.0/gtk.css'
+
+# Gtk4
+[templates.gtk4]
+input_path = '~/.config/matugen/templates/gtk.css'
+output_path = '~/.config/gtk-4.0/gtk.css'
+
+# Qt5
+[templates.qt5]
+input_path = '~/.config/matugen/templates/qtct-colors.conf'
+output_path = '~/.config/qt5ct/colors/matugen-qt5ct.conf'
+
+# Qt6
+[templates.qt6]
+input_path = '~/.config/matugen/templates/qtct-colors.conf'
+output_path = '~/.config/qt6ct/colors/matugen-qt6ct.conf'
+
+# Kvantum
+[templates.kvantum]
+input_path = '~/.config/matugen/templates/matugen.kvconfig'
+output_path = '~/.config/Kvantum/matugen/matugen.kvconfig'
+
+# Neovim
+[templates.neovim]
+input_path = '~/.config/matugen/templates/neovim.lua'
+output_path = '~/.config/nvim/lua/base16/matugen.lua'
