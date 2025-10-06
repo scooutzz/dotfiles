@@ -1,3 +1,5 @@
+@import "/home/relaxou/.config/wofi/colors.css";
+
 * {
   font-family: "JetBrainsMono Nerd Font", monospace;
   font-size: 14px;
@@ -6,34 +8,34 @@
 
 window {
   margin: 0px;
-  border: 2px solid #1f1d2e;
-  border-radius: 5px;
-  background-color: #191724;
+  background-color: transparent;
   font-family: monospace;
   font-size: 12px;
 }
 
 #input {
   margin: 5px;
-  border: 1px solid #191724;
-  color: #ebbcba;
-  background-color: #191724;
+  border: 1px solid @background;
+  color: @primary;
+  background-color: @primary_container;
 }
 
 #input image {
-  color: #ebbcba;
+  color: @primary;
 }
 
 #inner-box {
   margin: 5px;
   border: none;
-  background-color: #1f1d2e;
+  background-color: transparent;
 }
 
 #outer-box {
   margin: 5px;
   border: none;
-  background-color: #1f1d2e;
+  border: 2px solid @primary;
+  border-radius: 5px;
+  background-color: @background;
 }
 
 #scroll {
@@ -44,15 +46,15 @@ window {
 #text {
   margin: 5px;
   border: none;
-  color: #ebbcba;
+  color: @primary;
 }
 
 #entry:selected {
-  background-color: #26233a;
+  background-color: @primary_container;
+  border-radius: 5px;
   font-weight: normal;
 }
 
 #text:selected {
-  background-color: #26233a;
   font-weight: normal;
 }
