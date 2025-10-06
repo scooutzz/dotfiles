@@ -1,0 +1,164 @@
+#!/usr/bin/env bash
+
+# VPN Selector para Hyprland + wofi
+# Adaptado do script original
+# Autor: scooutzz
+
+# Função para verificar se NetworkManager está rodando
+check_nm() {
+    if ! systemctl is-active --quiet NetworkManager; then
+        notify-send "VPN Selector" "NetworkManager not working!" \
+            --icon=dialog-error \
+            --urgency=critical \
+            --expire-time=2000
+        exit 1
+    fi
+}
+
+# Função para obter status da VPN
+get_vpn_status() {
+    local active_vpn=$(nmcli -t -f NAME,TYPE connection show --active | grep ":vpn" | cut -d: -f1)
+    echo "$active_vpn"
+}
+
+# Função para obter lista de VPNs
+get_vpn_list() {
+    nmcli -t -f NAME,TYPE connection show | grep ":vpn" | cut -d: -f1
+}
+
+# Função para conectar VPN
+connect_vpn() {
+    local vpn_name="$1"
+    
+    notify-send "VPN Selector" "Connectin to $vpn_name..." \
+        --icon=network-vpn \
+        --urgency=normal \
+        --expire-time=2000
+    
+    if nmcli connection up "$vpn_name" &>/dev/null; then
+        notify-send "VPN Selector" "✅ Connected to $vpn_name" \
+            --icon=network-vpn \
+            --urgency=normal \
+            --expire-time=2000
+    else
+        notify-send "VPN Selector" "❌ Error connecting to $vpn_name" \
+            --icon=dialog-error \
+            --urgency=critical \
+            --expire-time=2000
+    fi
+}
+
+# Função para desconectar VPN
+disconnect_vpn() {
+    local vpn_name="$1"
+    
+    notify-send "VPN Selector" "Disconnecting from $vpn_name..." \
+        --icon=network-vpn \
+        --urgency=normal \
+        --expire-time=2000
+    
+    if nmcli connection down "$vpn_name" &>/dev/null; then
+        notify-send "VPN Selector" "🔓 Disconnected from $vpn_name" \
+            --icon=network-offline \
+            --urgency=normal \
+            --expire-time=2000
+    else
+        notify-send "VPN Selector" "❌ Failed disconnecting from $vpn_name" \
+            --icon=dialog-error \
+            --urgency=critical \
+            --expire-time=2000
+    fi
+}
+
+# Verifica se NetworkManager está rodando
+check_nm
+
+# Busca VPN ativa
+ACTIVE_VPN=$(get_vpn_status)
+
+# Busca todas VPNs cadastradas
+VPN_LIST=$(get_vpn_list)
+
+# Verifica se há VPNs configuradas
+if [[ -z "$VPN_LIST" ]]; then
+    notify-send "VPN Selector" "No VPN configured in NetworkManager!" \
+        --icon=dialog-information \
+        --urgency=normal \
+        --expire-time=2000
+    exit 1
+fi
+
+# Monta o menu
+MENU_ITEMS=()
+
+# Se há VPN ativa, mostra status e opção de desconectar
+if [[ -n "$ACTIVE_VPN" ]]; then
+    MENU_ITEMS+=("🟢 Ativa: $ACTIVE_VPN")
+    MENU_ITEMS+=("🔓 Desconectar VPN")
+    MENU_ITEMS+=("━━━━━━━━━━━━━━━━━━━━")
+fi
+
+# Adiciona as VPNs disponíveis
+while IFS= read -r vpn; do
+    if [[ "$vpn" != "$ACTIVE_VPN" ]]; then
+        MENU_ITEMS+=("🔒 $vpn")
+    fi
+done <<< "$VPN_LIST"
+
+# Se não há VPN ativa, adiciona todas
+if [[ -z "$ACTIVE_VPN" ]]; then
+    MENU_ITEMS=()
+    while IFS= read -r vpn; do
+        MENU_ITEMS+=("🔒 $vpn")
+    done <<< "$VPN_LIST"
+fi
+
+# Converte array em string separada por nova linha
+MENU=$(printf "%s\n" "${MENU_ITEMS[@]}")
+
+# Configura wofi com tema customizado
+WOFI_OPTS=(
+    --dmenu
+    --prompt "🛡️ VPN Selector"
+    --lines 8
+    --width 400
+    --height 300
+    --insensitive
+    --allow-markup
+    --no-actions
+)
+
+# Exibe o menu via wofi
+SELECTED=$(echo -e "$MENU" | wofi "${WOFI_OPTS[@]}")
+
+# Processa a seleção
+case "$SELECTED" in
+    "🔓 Disconnect VPN")
+        if [[ -n "$ACTIVE_VPN" ]]; then
+            disconnect_vpn "$ACTIVE_VPN"
+        fi
+        ;;
+    "🟢 Active: $ACTIVE_VPN")
+        # Clicou no status da VPN ativa - mostra informações
+        vpn_info=$(nmcli connection show "$ACTIVE_VPN" | grep -E "(vpn.data|IP4.ADDRESS|IP4.GATEWAY)" | head -3)
+        notify-send "VPN Info" "VPN: $ACTIVE_VPN\n━━━━━━━━━━━━━━━━━━━━\n$vpn_info" \
+            --icon=network-vpn \
+            --expire-time=5000
+        ;;
+    "━━━━━━━━━━━━━━━━━━━━")
+        # Separador - não faz nada
+        ;;
+    "")
+        # Usuário cancelou
+        echo "Seleção cancelada"
+        ;;
+    🔒*)
+        # Remove o emoji e conecta
+        VPN_NAME=$(echo "$SELECTED" | sed 's/🔒 //')
+        connect_vpn "$VPN_NAME"
+        ;;
+    *)
+        # Fallback para nomes sem emoji
+        connect_vpn "$SELECTED"
+        ;;
+esac

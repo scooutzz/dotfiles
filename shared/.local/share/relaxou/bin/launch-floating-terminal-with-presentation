@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cmd="$*"
+exec setsid uwsm app -- kitty --class=relaxou --title=relaxou -e bash -c "$cmd; show-done"
