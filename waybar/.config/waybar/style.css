@@ -1,41 +1,38 @@
 @import "matugen/matugen-waybar.css";
-/* @import "/home/relaxou/.cache/wal/colors-waybar.css"; */
 
 * {
-  font-family: JetbrainsMono Nerd Font;
-  font-size: 16px;
-  min-height: 0;
-  padding-right: 2px;
-  padding-left: 2px;
-  padding-bottom: 0px;
+	font-family: JetbrainsMono Nerd Font;
+	font-size: 16px;
+	min-height: 0;
+	padding: 0 2px;
 }
 
 #waybar {
-  background: transparent;
-  color: @primary;
-  margin: 2px 2px;
+	background: transparent;
+	color: @primary;
+	margin: 2px 2px;
 }
 
 #workspaces {
-  border-radius: 5px;
-  margin: 5px 0;
-  background: @background;
+	border-radius: 5px;
+	margin: 5px 0;
+	background: @background;
 }
 
 #workspaces button {
-  color: @inverse_primary;
-  border-radius: 5px;
-  padding: 0.4rem;
+	color: @inverse_primary;
+	border-radius: 5px;
+	padding: 0.4rem;
 }
 
 #workspaces button.active {
-  color: @primary;
-  border-radius: 5px;
+	color: @primary;
+	border-radius: 5px;
 }
 
 #workspaces button:hover {
-  color: @hover;
-  border-radius: 5px;
+	color: @hover;
+	border-radius: 5px;
 }
 
 #custom-music,
@@ -51,88 +48,94 @@
 #custom-power,
 #custom-power_menu,
 #custom-swaync {
-  background-color: @background;
-  padding: 0.5rem 1rem;
-  margin: 5px 0;
-  border-radius: 0px 5px 5px 0px;
+	background-color: @background;
+	padding: 0.5rem 1rem;
+	margin: 5px 0;
+	border-radius: 0px 5px 5px 0px;
 }
 
 #custom-stream_status {
-  background-color: @background;
-  padding: 0.5rem 1rem;
-  margin: 5px 0;
-  border-radius: 0px 5px 5px 0px;
+	background-color: @background;
+	padding: 0.5rem 1rem;
+	margin: 5px 0;
+	border-radius: 0px 5px 5px 0px;
 }
 
 #custom-stream_status.up {
-  color: #c3e88d;
+	color: #c3e88d;
 }
 
 #custom-stream_status.warning {
-  color: #ff9e64;
+	color: #ff9e64;
 }
 
 #custom-stream_status.down {
-  color: #f7768e;
+	color: #f7768e;
+}
+
+#network {
+	border-radius: 0px 5px 5px 0px;
+}
+
+#cpu {
+	border-radius: 5px 0px 0px 5px;
+	margin-left: 0.5rem;
 }
 
 #memory {
-  /* border-radius: 0px 5px 5px 0px; */
-  margin-left: 0.5rem;
-  border-radius: 5px;
+	border-radius: 0px 5px 5px 0px;
 }
 
 #clock {
-  color: @primary;
-  border-radius: 5px;
-  margin-right: 0.5rem;
+	color: @primary;
+	border-radius: 5px;
+	margin-right: 0.5rem;
 }
 
 #battery {
-  color: @primary;
+	color: @primary;
 }
 
 #battery.charging {
-  color: #a6d189;
+	color: #a6d189;
 }
 
 #battery.warning:not(.charging) {
-  color: #e78284;
+	color: #e78284;
 }
 
 #backlight {
-  color: #e5c890;
+	color: #e5c890;
 }
 
 #backlight,
-#battery,
-#network {
-  border-radius: 0;
+#battery {
+	border-radius: 0;
 }
 
 #pulseaudio {
-  border-radius: 5px 0 0 5px;
+	border-radius: 5px 0 0 5px;
 }
 
 #custom-music {
-  border-radius: 5px;
+	border-radius: 5px;
 }
 
 #custom-lock {
-  border-radius: 5px;
+	border-radius: 5px;
 }
 
 #custom-power_menu {
-  margin-left: 0.5rem;
-  border-radius: 5px;
+	margin-left: 0.5rem;
+	border-radius: 5px;
 }
 
 #custom-swaync {
-  margin-left: 0.5rem;
-  border-radius: 5px;
+	margin-left: 0.5rem;
+	border-radius: 5px;
 }
 
 #tray {
-  margin-left: 0.5rem;
-  border-radius: 5px;
+	margin-left: 0.5rem;
+	border-radius: 5px;
 }
