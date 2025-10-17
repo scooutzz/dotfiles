@@ -1,0 +1,22 @@
+# === LISTA DE CORES (NOMES) ===
+<* for name, value in colors *>
+{{ name }}
+<* endfor *>
+
+# === CORES COM FORMATOS (DEFAULT) ===
+<* for name, value in colors *>
+[[ {{ name }} ]]
+hex={{ value.default.hex }}
+rgb={{ value.default.rgb }}
+hsl={{ value.default.hsl }}
+rgba={{ value.default.rgba }}
+hsla={{ value.default.hsla }}
+red={{ value.default.red }} green={{ value.default.green }} blue={{ value.default.blue }} alpha={{ value.default.alpha }}
+hue={{ value.default.hue }} sat={{ value.default.saturation }} light={{ value.default.lightness }}
+
+<* endfor *>
+
+# === CORES LIGHT vs DARK (hex) ===
+<* for name, value in colors *>
+{{ name }} -> light={{ value.light.hex }} | dark={{ value.dark.hex }}
+<* endfor *>
