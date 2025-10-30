@@ -11,39 +11,39 @@ local M = {}
 -- Cores base do matugen
 local colors = {
 	-- Cores primárias
-	primary = "#85d2e8",
-	on_primary = "#003641",
+	primary = "#a7c8ff",
+	on_primary = "#04305f",
 
 	-- Cores de superfície
-	surface = "#0f1416",
-	surface_bright = "#343a3c",
-	surface_dim = "#0f1416",
-	surface_container = "#1b2022",
-	surface_container_high = "#252b2d",
-	surface_container_highest = "#303638",
-	surface_container_low = "#171c1e",
-	surface_container_lowest = "#090f11",
+	surface = "#111318",
+	surface_bright = "#37393e",
+	surface_dim = "#111318",
+	surface_container = "#1d2024",
+	surface_container_high = "#282a2f",
+	surface_container_highest = "#33353a",
+	surface_container_low = "#191c20",
+	surface_container_lowest = "#0c0e13",
 
-	on_surface = "#dee3e6",
-	on_surface_variant = "#bfc8cb",
+	on_surface = "#e1e2e9",
+	on_surface_variant = "#c4c6cf",
 
 	-- Cores de destaque
-	secondary = "#b2cbd3",
-	on_secondary = "#1d343a",
-	tertiary = "#bfc4eb",
-	on_tertiary = "#292e4d",
+	secondary = "#bdc7dc",
+	on_secondary = "#273141",
+	tertiary = "#dbbce1",
+	on_tertiary = "#3e2845",
 
 	-- Cores de erro/aviso
 	error = "#ffb4ab",
 	on_error = "#690005",
 
 	-- Cores de contorno
-	outline = "#899295",
-	outline_variant = "#3f484b",
+	outline = "#8e9199",
+	outline_variant = "#43474e",
 
 	-- Background
-	background = "#0f1416",
-	on_background = "#dee3e6",
+	background = "#111318",
+	on_background = "#e1e2e9",
 }
 
 -- Função para aplicar o colorscheme
@@ -146,20 +146,20 @@ end
 return M
 
 -- return {
--- 	base00 = "#0f1416", -- background
--- 	base01 = "#dee3e6", -- surface
--- 	base02 = "#bfc8cb", -- surface_variant
--- 	base03 = "#bfc8cb", -- comments/dim / outline / muted
--- 	base04 = "#bfc8cb", -- on_surface_variant
--- 	base05 = "#dee3e6", -- foreground / on_surface
--- 	base06 = "#2c3133", -- inverse_on_surface
--- 	base07 = "#85d2e8", -- primary
+-- 	base00 = "#111318", -- background
+-- 	base01 = "#e1e2e9", -- surface
+-- 	base02 = "#c4c6cf", -- surface_variant
+-- 	base03 = "#c4c6cf", -- comments/dim / outline / muted
+-- 	base04 = "#c4c6cf", -- on_surface_variant
+-- 	base05 = "#e1e2e9", -- foreground / on_surface
+-- 	base06 = "#2e3035", -- inverse_on_surface
+-- 	base07 = "#a7c8ff", -- primary
 -- 	base08 = "#ffb4ab", -- red (error)
--- 	base09 = "#bfc4eb", -- orange (tertiary / or primary_container)
--- 	base0A = "#b2cbd3", -- yellow (secondary)
--- 	base0B = "#00687b", -- green (primairy_container / or secondary_container)
--- 	base0C = "#344a51", -- cyan (secondary_container / or parimary)
--- 	base0D = "#85d2e8", -- blue (tertiary_container / or primary)
--- 	base0E = "#85d2e8", -- magenta (on_primary_container / or tertiary)
+-- 	base09 = "#dbbce1", -- orange (tertiary / or primary_container)
+-- 	base0A = "#bdc7dc", -- yellow (secondary)
+-- 	base0B = "#3e5f90", -- green (primairy_container / or secondary_container)
+-- 	base0C = "#3d4758", -- cyan (secondary_container / or parimary)
+-- 	base0D = "#a7c8ff", -- blue (tertiary_container / or primary)
+-- 	base0E = "#a7c8ff", -- magenta (on_primary_container / or tertiary)
 -- 	base0F = "#ffb4ab", -- brown (error_container / or outline_variant)
 -- }
