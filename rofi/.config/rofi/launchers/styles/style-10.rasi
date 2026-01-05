@@ -147,8 +147,8 @@ element normal.normal {
   text-color:                  @foreground;
 }
 element selected.normal {
-  background-color:            @selected-alpha;
-  text-color:                  @foreground;
+  background-color:            @selected;
+  text-color:                  @selected-text;
 }
 element-icon {
   background-color:            transparent;
