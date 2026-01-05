@@ -7,7 +7,7 @@ PANE_CACHE_FILE="$PANE_CACHE_DIR/panes.cache"
 
 # config file example
 # ------------------------
-file: ~/.config/tmux-sessionizer/tmux-sessionizer.conf
+# # file: ~/.config/tmux-sessionizer/tmux-sessionizer.conf
 # # If set this override the default TS_SEARCH_PATHS (~/ ~/personal ~/personal/dev/env/.config)
 # TS_SEARCH_PATHS=(~/)
 # # If set this add additional search paths to the default TS_SEARCH_PATHS
