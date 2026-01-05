@@ -58,13 +58,13 @@ format = '[](bold fg:bright-black)[$symbol $branch(:$remote_branch)](fg:yello
 style = 'bg:bright-black'
 format = '([](bold fg:bright-black)[$all_status$ahead_behind]($style)[](bold fg:bright-black))'
 up_to_date = ""
-modified = "[${count}+](fg:yellow bg:bright-black)"
-deleted =  "[${count}-](fg:red bg:bright-black)" 
-conflicted =  "[${count}~](fg:red bg:bright-black)" 
+modified = "[+${count}|](fg:yellow bg:bright-black)"
+deleted =  "[-${count}|](fg:red bg:bright-black)" 
+conflicted =  "[~${count}|](fg:red bg:bright-black)" 
 ahead = "⇡${count}"
 behind = "⇣${count}"
-untracked = "[${count}?](fg:blue bg:bright-black)" 
-staged = "[${count}+](fg:green bg:bright-black)" 
+untracked = "[?${count}|](fg:blue bg:bright-black)" 
+staged = "[+${count}|](fg:green bg:bright-black)" 
 
 #-----cmdDuration------#
 #----------------------#
