@@ -104,605 +104,605 @@ tertiary_fixed_dim
 # === CORES COM FORMATOS (DEFAULT) ===
 
 [[ background ]]
-hex=#0f1416
-rgb=rgb(15, 20, 22)
-hsl=hsl(197, 18%, 7%)
-rgba=rgba(15, 20, 22, 1.0)
-hsla=hsla(197, 18%, 7%, 1.0)
-red=15 green=20 blue=22 alpha=255
-hue=197.14285714285714 sat=18.91891891891892 light=7.254901960784313
+hex=#111318
+rgb=rgb(17, 19, 24)
+hsl=hsl(223, 17%, 8%)
+rgba=rgba(17, 19, 24, 1)
+hsla=hsla(223, 17%, 8%, 1)
+red=17 green=19 blue=24 alpha=1
+hue=222 sat=17 light=8
 
 
 [[ error ]]
 hex=#ffb4ab
 rgb=rgb(255, 180, 171)
-hsl=hsl(6, 99%, 83%)
-rgba=rgba(255, 180, 171, 1.0)
-hsla=hsla(6, 99%, 83%, 1.0)
-red=255 green=180 blue=171 alpha=255
-hue=6.428571428571445 sat=99.99999999999997 light=83.52941176470587
+hsl=hsl(6, 100%, 84%)
+rgba=rgba(255, 180, 171, 1)
+hsla=hsla(6, 100%, 84%, 1)
+red=255 green=180 blue=171 alpha=1
+hue=6 sat=100 light=83
 
 
 [[ error_container ]]
 hex=#93000a
 rgb=rgb(147, 0, 10)
-hsl=hsl(255, 100%, 28%)
-rgba=rgba(147, 0, 10, 1.0)
-hsla=hsla(255, 100%, 28%, 1.0)
-red=147 green=0 blue=10 alpha=255
-hue=355.9183673469388 sat=100.0 light=28.823529411764703
+hsl=hsl(356, 100%, 29%)
+rgba=rgba(147, 0, 10, 1)
+hsla=hsla(356, 100%, 29%, 1)
+red=147 green=0 blue=10 alpha=1
+hue=355 sat=100 light=28
 
 
 [[ inverse_on_surface ]]
-hex=#2c3133
-rgb=rgb(44, 49, 51)
-hsl=hsl(197, 7%, 18%)
-rgba=rgba(44, 49, 51, 1.0)
-hsla=hsla(197, 7%, 18%, 1.0)
-red=44 green=49 blue=51 alpha=255
-hue=197.14285714285714 sat=7.368421052631582 light=18.627450980392158
+hex=#2e3035
+rgb=rgb(46, 48, 53)
+hsl=hsl(223, 7%, 19%)
+rgba=rgba(46, 48, 53, 1)
+hsla=hsla(223, 7%, 19%, 1)
+red=46 green=48 blue=53 alpha=1
+hue=222 sat=7 light=19
 
 
 [[ inverse_primary ]]
-hex=#00687b
-rgb=rgb(0, 104, 123)
-hsl=hsl(189, 100%, 24%)
-rgba=rgba(0, 104, 123, 1.0)
-hsla=hsla(189, 100%, 24%, 1.0)
-red=0 green=104 blue=123 alpha=255
-hue=189.2682926829268 sat=100.0 light=24.11764705882353
+hex=#3a608f
+rgb=rgb(58, 96, 143)
+hsl=hsl(213, 42%, 39%)
+rgba=rgba(58, 96, 143, 1)
+hsla=hsla(213, 42%, 39%, 1)
+red=58 green=96 blue=143 alpha=1
+hue=213 sat=42 light=39
 
 
 [[ inverse_surface ]]
-hex=#dee3e6
-rgb=rgb(222, 227, 230)
-hsl=hsl(202, 13%, 88%)
-rgba=rgba(222, 227, 230, 1.0)
-hsla=hsla(202, 13%, 88%, 1.0)
-red=222 green=227 blue=230 alpha=255
-hue=202.50000000000014 sat=13.793103448275856 light=88.62745098039215
+hex=#e1e2e9
+rgb=rgb(225, 226, 233)
+hsl=hsl(232, 15%, 90%)
+rgba=rgba(225, 226, 233, 1)
+hsla=hsla(232, 15%, 90%, 1)
+red=225 green=226 blue=233 alpha=1
+hue=232 sat=15 light=89
 
 
 [[ on_background ]]
-hex=#dee3e6
-rgb=rgb(222, 227, 230)
-hsl=hsl(202, 13%, 88%)
-rgba=rgba(222, 227, 230, 1.0)
-hsla=hsla(202, 13%, 88%, 1.0)
-red=222 green=227 blue=230 alpha=255
-hue=202.50000000000014 sat=13.793103448275856 light=88.62745098039215
+hex=#e1e2e9
+rgb=rgb(225, 226, 233)
+hsl=hsl(232, 15%, 90%)
+rgba=rgba(225, 226, 233, 1)
+hsla=hsla(232, 15%, 90%, 1)
+red=225 green=226 blue=233 alpha=1
+hue=232 sat=15 light=89
 
 
 [[ on_error ]]
 hex=#690005
 rgb=rgb(105, 0, 5)
-hsl=hsl(255, 100%, 20%)
-rgba=rgba(105, 0, 5, 1.0)
-hsla=hsla(255, 100%, 20%, 1.0)
-red=105 green=0 blue=5 alpha=255
-hue=357.14285714285717 sat=100.0 light=20.588235294117645
+hsl=hsl(357, 100%, 21%)
+rgba=rgba(105, 0, 5, 1)
+hsla=hsla(357, 100%, 21%, 1)
+red=105 green=0 blue=5 alpha=1
+hue=357 sat=100 light=20
 
 
 [[ on_error_container ]]
 hex=#ffdad6
 rgb=rgb(255, 218, 214)
-hsl=hsl(5, 100%, 91%)
-rgba=rgba(255, 218, 214, 1.0)
-hsla=hsla(5, 100%, 91%, 1.0)
-red=255 green=218 blue=214 alpha=255
-hue=5.853658536585345 sat=100.00000000000007 light=91.9607843137255
+hsl=hsl(6, 100%, 92%)
+rgba=rgba(255, 218, 214, 1)
+hsla=hsla(6, 100%, 92%, 1)
+red=255 green=218 blue=214 alpha=1
+hue=5 sat=100 light=91
 
 
 [[ on_primary ]]
-hex=#003641
-rgb=rgb(0, 54, 65)
-hsl=hsl(190, 100%, 12%)
-rgba=rgba(0, 54, 65, 1.0)
-hsla=hsla(190, 100%, 12%, 1.0)
-red=0 green=54 blue=65 alpha=255
-hue=190.15384615384613 sat=100.0 light=12.745098039215685
+hex=#00315c
+rgb=rgb(0, 49, 92)
+hsl=hsl(208, 100%, 18%)
+rgba=rgba(0, 49, 92, 1)
+hsla=hsla(208, 100%, 18%, 1)
+red=0 green=49 blue=92 alpha=1
+hue=208 sat=100 light=18
 
 
 [[ on_primary_container ]]
-hex=#aeecff
-rgb=rgb(174, 236, 255)
-hsl=hsl(194, 100%, 84%)
-rgba=rgba(174, 236, 255, 1.0)
-hsla=hsla(194, 100%, 84%, 1.0)
-red=174 green=236 blue=255 alpha=255
-hue=194.07407407407408 sat=100.0 light=84.11764705882354
+hex=#d3e3ff
+rgb=rgb(211, 227, 255)
+hsl=hsl(218, 100%, 91%)
+rgba=rgba(211, 227, 255, 1)
+hsla=hsla(218, 100%, 91%, 1)
+red=211 green=227 blue=255 alpha=1
+hue=218 sat=100 light=91
 
 
 [[ on_primary_fixed ]]
-hex=#001f26
-rgb=rgb(0, 31, 38)
-hsl=hsl(191, 100%, 7%)
-rgba=rgba(0, 31, 38, 1.0)
-hsla=hsla(191, 100%, 7%, 1.0)
-red=0 green=31 blue=38 alpha=255
-hue=191.05263157894737 sat=100.0 light=7.450980392156863
+hex=#001c39
+rgb=rgb(0, 28, 57)
+hsl=hsl(211, 100%, 11%)
+rgba=rgba(0, 28, 57, 1)
+hsla=hsla(211, 100%, 11%, 1)
+red=0 green=28 blue=57 alpha=1
+hue=210 sat=100 light=11
 
 
 [[ on_primary_fixed_variant ]]
-hex=#004e5d
-rgb=rgb(0, 78, 93)
-hsl=hsl(189, 100%, 18%)
-rgba=rgba(0, 78, 93, 1.0)
-hsla=hsla(189, 100%, 18%, 1.0)
-red=0 green=78 blue=93 alpha=255
-hue=189.6774193548387 sat=100.0 light=18.235294117647058
+hex=#1f4876
+rgb=rgb(31, 72, 118)
+hsl=hsl(212, 58%, 29%)
+rgba=rgba(31, 72, 118, 1)
+hsla=hsla(212, 58%, 29%, 1)
+red=31 green=72 blue=118 alpha=1
+hue=211 sat=58 light=29
 
 
 [[ on_secondary ]]
-hex=#1d343a
-rgb=rgb(29, 52, 58)
-hsl=hsl(192, 33%, 17%)
-rgba=rgba(29, 52, 58, 1.0)
-hsla=hsla(192, 33%, 17%, 1.0)
-red=29 green=52 blue=58 alpha=255
-hue=192.41379310344828 sat=33.33333333333333 light=17.058823529411764
+hex=#263141
+rgb=rgb(38, 49, 65)
+hsl=hsl(216, 26%, 20%)
+rgba=rgba(38, 49, 65, 1)
+hsla=hsla(216, 26%, 20%, 1)
+red=38 green=49 blue=65 alpha=1
+hue=215 sat=26 light=20
 
 
 [[ on_secondary_container ]]
-hex=#cee7ef
-rgb=rgb(206, 231, 239)
-hsl=hsl(194, 50%, 87%)
-rgba=rgba(206, 231, 239, 1.0)
-hsla=hsla(194, 50%, 87%, 1.0)
-red=206 green=231 blue=239 alpha=255
-hue=194.54545454545453 sat=50.76923076923077 light=87.25490196078431
+hex=#d8e3f8
+rgb=rgb(216, 227, 248)
+hsl=hsl(219, 70%, 91%)
+rgba=rgba(216, 227, 248, 1)
+hsla=hsla(219, 70%, 91%, 1)
+red=216 green=227 blue=248 alpha=1
+hue=219 sat=69 light=90
 
 
 [[ on_secondary_fixed ]]
-hex=#061f25
-rgb=rgb(6, 31, 37)
-hsl=hsl(191, 72%, 8%)
-rgba=rgba(6, 31, 37, 1.0)
-hsla=hsla(191, 72%, 8%, 1.0)
-red=6 green=31 blue=37 alpha=255
-hue=191.61290322580643 sat=72.09302325581396 light=8.431372549019608
+hex=#111c2b
+rgb=rgb(17, 28, 43)
+hsl=hsl(215, 43%, 12%)
+rgba=rgba(17, 28, 43, 1)
+hsla=hsla(215, 43%, 12%, 1)
+red=17 green=28 blue=43 alpha=1
+hue=214 sat=43 light=11
 
 
 [[ on_secondary_fixed_variant ]]
-hex=#344a51
-rgb=rgb(52, 74, 81)
-hsl=hsl(194, 21%, 26%)
-rgba=rgba(52, 74, 81, 1.0)
-hsla=hsla(194, 21%, 26%, 1.0)
-red=52 green=74 blue=81 alpha=255
-hue=194.48275862068965 sat=21.80451127819549 light=26.078431372549016
+hex=#3c4758
+rgb=rgb(60, 71, 88)
+hsl=hsl(216, 19%, 29%)
+rgba=rgba(60, 71, 88, 1)
+hsla=hsla(216, 19%, 29%, 1)
+red=60 green=71 blue=88 alpha=1
+hue=216 sat=18 light=29
 
 
 [[ on_surface ]]
-hex=#dee3e6
-rgb=rgb(222, 227, 230)
-hsl=hsl(202, 13%, 88%)
-rgba=rgba(222, 227, 230, 1.0)
-hsla=hsla(202, 13%, 88%, 1.0)
-red=222 green=227 blue=230 alpha=255
-hue=202.50000000000014 sat=13.793103448275856 light=88.62745098039215
+hex=#e1e2e9
+rgb=rgb(225, 226, 233)
+hsl=hsl(232, 15%, 90%)
+rgba=rgba(225, 226, 233, 1)
+hsla=hsla(232, 15%, 90%, 1)
+red=225 green=226 blue=233 alpha=1
+hue=232 sat=15 light=89
 
 
 [[ on_surface_variant ]]
-hex=#bfc8cb
-rgb=rgb(191, 200, 203)
-hsl=hsl(194, 10%, 77%)
-rgba=rgba(191, 200, 203, 1.0)
-hsla=hsla(194, 10%, 77%, 1.0)
-red=191 green=200 blue=203 alpha=255
-hue=194.99999999999997 sat=10.34482758620688 light=77.25490196078431
+hex=#c3c6cf
+rgb=rgb(195, 198, 207)
+hsl=hsl(225, 11%, 79%)
+rgba=rgba(195, 198, 207, 1)
+hsla=hsla(225, 11%, 79%, 1)
+red=195 green=198 blue=207 alpha=1
+hue=225 sat=11 light=78
 
 
 [[ on_tertiary ]]
-hex=#292e4d
-rgb=rgb(41, 46, 77)
-hsl=hsl(231, 30%, 23%)
-rgba=rgba(41, 46, 77, 1.0)
-hsla=hsla(231, 30%, 23%, 1.0)
-red=41 green=46 blue=77 alpha=255
-hue=231.66666666666666 sat=30.508474576271176 light=23.137254901960784
+hex=#3c2946
+rgb=rgb(60, 41, 70)
+hsl=hsl(279, 26%, 22%)
+rgba=rgba(60, 41, 70, 1)
+hsla=hsla(279, 26%, 22%, 1)
+red=60 green=41 blue=70 alpha=1
+hue=279 sat=26 light=21
 
 
 [[ on_tertiary_container ]]
-hex=#dee0ff
-rgb=rgb(222, 224, 255)
-hsl=hsl(236, 100%, 93%)
-rgba=rgba(222, 224, 255, 1.0)
-hsla=hsla(236, 100%, 93%, 1.0)
-red=222 green=224 blue=255 alpha=255
-hue=236.36363636363637 sat=100.0 light=93.52941176470588
+hex=#f5d9ff
+rgb=rgb(245, 217, 255)
+hsl=hsl(284, 100%, 93%)
+rgba=rgba(245, 217, 255, 1)
+hsla=hsla(284, 100%, 93%, 1)
+red=245 green=217 blue=255 alpha=1
+hue=284 sat=100 light=92
 
 
 [[ on_tertiary_fixed ]]
-hex=#141937
-rgb=rgb(20, 25, 55)
-hsl=hsl(231, 46%, 14%)
-rgba=rgba(20, 25, 55, 1.0)
-hsla=hsla(231, 46%, 14%, 1.0)
-red=20 green=25 blue=55 alpha=255
-hue=231.42857142857144 sat=46.666666666666664 light=14.705882352941178
+hex=#261430
+rgb=rgb(38, 20, 48)
+hsl=hsl(279, 41%, 13%)
+rgba=rgba(38, 20, 48, 1)
+hsla=hsla(279, 41%, 13%, 1)
+red=38 green=20 blue=48 alpha=1
+hue=278 sat=41 light=13
 
 
 [[ on_tertiary_fixed_variant ]]
-hex=#3f4565
-rgb=rgb(63, 69, 101)
-hsl=hsl(230, 23%, 32%)
-rgba=rgba(63, 69, 101, 1.0)
-hsla=hsla(230, 23%, 32%, 1.0)
-red=63 green=69 blue=101 alpha=255
-hue=230.52631578947367 sat=23.17073170731707 light=32.15686274509804
+hex=#543f5e
+rgb=rgb(84, 63, 94)
+hsl=hsl(281, 20%, 31%)
+rgba=rgba(84, 63, 94, 1)
+hsla=hsla(281, 20%, 31%, 1)
+red=84 green=63 blue=94 alpha=1
+hue=280 sat=19 light=30
 
 
 [[ outline ]]
-hex=#899295
-rgb=rgb(137, 146, 149)
-hsl=hsl(195, 5%, 56%)
-rgba=rgba(137, 146, 149, 1.0)
-hsla=hsla(195, 5%, 56%, 1.0)
-red=137 green=146 blue=149 alpha=255
-hue=195.00000000000009 sat=5.357142857142864 light=56.07843137254902
+hex=#8d9199
+rgb=rgb(141, 145, 153)
+hsl=hsl(220, 6%, 58%)
+rgba=rgba(141, 145, 153, 1)
+hsla=hsla(220, 6%, 58%, 1)
+red=141 green=145 blue=153 alpha=1
+hue=220 sat=5 light=57
 
 
 [[ outline_variant ]]
-hex=#3f484b
-rgb=rgb(63, 72, 75)
-hsl=hsl(195, 8%, 27%)
-rgba=rgba(63, 72, 75, 1.0)
-hsla=hsla(195, 8%, 27%, 1.0)
-red=63 green=72 blue=75 alpha=255
-hue=195.00000000000003 sat=8.695652173913041 light=27.058823529411768
+hex=#43474e
+rgb=rgb(67, 71, 78)
+hsl=hsl(218, 8%, 28%)
+rgba=rgba(67, 71, 78, 1)
+hsla=hsla(218, 8%, 28%, 1)
+red=67 green=71 blue=78 alpha=1
+hue=218 sat=7 light=28
 
 
 [[ primary ]]
-hex=#85d2e8
-rgb=rgb(133, 210, 232)
-hsl=hsl(193, 68%, 71%)
-rgba=rgba(133, 210, 232, 1.0)
-hsla=hsla(193, 68%, 71%, 1.0)
-red=133 green=210 blue=232 alpha=255
-hue=193.33333333333334 sat=68.27586206896551 light=71.56862745098039
+hex=#a4c9fe
+rgb=rgb(164, 201, 254)
+hsl=hsl(215, 98%, 82%)
+rgba=rgba(164, 201, 254, 1)
+hsla=hsla(215, 98%, 82%, 1)
+red=164 green=201 blue=254 alpha=1
+hue=215 sat=97 light=81
 
 
 [[ primary_container ]]
-hex=#004e5d
-rgb=rgb(0, 78, 93)
-hsl=hsl(189, 100%, 18%)
-rgba=rgba(0, 78, 93, 1.0)
-hsla=hsla(189, 100%, 18%, 1.0)
-red=0 green=78 blue=93 alpha=255
-hue=189.6774193548387 sat=100.0 light=18.235294117647058
+hex=#1f4876
+rgb=rgb(31, 72, 118)
+hsl=hsl(212, 58%, 29%)
+rgba=rgba(31, 72, 118, 1)
+hsla=hsla(212, 58%, 29%, 1)
+red=31 green=72 blue=118 alpha=1
+hue=211 sat=58 light=29
 
 
 [[ primary_fixed ]]
-hex=#aeecff
-rgb=rgb(174, 236, 255)
-hsl=hsl(194, 100%, 84%)
-rgba=rgba(174, 236, 255, 1.0)
-hsla=hsla(194, 100%, 84%, 1.0)
-red=174 green=236 blue=255 alpha=255
-hue=194.07407407407408 sat=100.0 light=84.11764705882354
+hex=#d3e3ff
+rgb=rgb(211, 227, 255)
+hsl=hsl(218, 100%, 91%)
+rgba=rgba(211, 227, 255, 1)
+hsla=hsla(218, 100%, 91%, 1)
+red=211 green=227 blue=255 alpha=1
+hue=218 sat=100 light=91
 
 
 [[ primary_fixed_dim ]]
-hex=#85d2e8
-rgb=rgb(133, 210, 232)
-hsl=hsl(193, 68%, 71%)
-rgba=rgba(133, 210, 232, 1.0)
-hsla=hsla(193, 68%, 71%, 1.0)
-red=133 green=210 blue=232 alpha=255
-hue=193.33333333333334 sat=68.27586206896551 light=71.56862745098039
+hex=#a4c9fe
+rgb=rgb(164, 201, 254)
+hsl=hsl(215, 98%, 82%)
+rgba=rgba(164, 201, 254, 1)
+hsla=hsla(215, 98%, 82%, 1)
+red=164 green=201 blue=254 alpha=1
+hue=215 sat=97 light=81
 
 
 [[ scrim ]]
 hex=#000000
 rgb=rgb(0, 0, 0)
 hsl=hsl(0, 0%, 0%)
-rgba=rgba(0, 0, 0, 1.0)
-hsla=hsla(0, 0%, 0%, 1.0)
-red=0 green=0 blue=0 alpha=255
-hue=0.0 sat=0.0 light=0.0
+rgba=rgba(0, 0, 0, 1)
+hsla=hsla(0, 0%, 0%, 1)
+red=0 green=0 blue=0 alpha=1
+hue=0 sat=0 light=0
 
 
 [[ secondary ]]
-hex=#b2cbd3
-rgb=rgb(178, 203, 211)
-hsl=hsl(194, 27%, 76%)
-rgba=rgba(178, 203, 211, 1.0)
-hsla=hsla(194, 27%, 76%, 1.0)
-red=178 green=203 blue=211 alpha=255
-hue=194.54545454545453 sat=27.272727272727266 light=76.27450980392156
+hex=#bcc7db
+rgb=rgb(188, 199, 219)
+hsl=hsl(219, 30%, 80%)
+rgba=rgba(188, 199, 219, 1)
+hsla=hsla(219, 30%, 80%, 1)
+red=188 green=199 blue=219 alpha=1
+hue=218 sat=30 light=79
 
 
 [[ secondary_container ]]
-hex=#344a51
-rgb=rgb(52, 74, 81)
-hsl=hsl(194, 21%, 26%)
-rgba=rgba(52, 74, 81, 1.0)
-hsla=hsla(194, 21%, 26%, 1.0)
-red=52 green=74 blue=81 alpha=255
-hue=194.48275862068965 sat=21.80451127819549 light=26.078431372549016
+hex=#3c4758
+rgb=rgb(60, 71, 88)
+hsl=hsl(216, 19%, 29%)
+rgba=rgba(60, 71, 88, 1)
+hsla=hsla(216, 19%, 29%, 1)
+red=60 green=71 blue=88 alpha=1
+hue=216 sat=18 light=29
 
 
 [[ secondary_fixed ]]
-hex=#cee7ef
-rgb=rgb(206, 231, 239)
-hsl=hsl(194, 50%, 87%)
-rgba=rgba(206, 231, 239, 1.0)
-hsla=hsla(194, 50%, 87%, 1.0)
-red=206 green=231 blue=239 alpha=255
-hue=194.54545454545453 sat=50.76923076923077 light=87.25490196078431
+hex=#d8e3f8
+rgb=rgb(216, 227, 248)
+hsl=hsl(219, 70%, 91%)
+rgba=rgba(216, 227, 248, 1)
+hsla=hsla(219, 70%, 91%, 1)
+red=216 green=227 blue=248 alpha=1
+hue=219 sat=69 light=90
 
 
 [[ secondary_fixed_dim ]]
-hex=#b2cbd3
-rgb=rgb(178, 203, 211)
-hsl=hsl(194, 27%, 76%)
-rgba=rgba(178, 203, 211, 1.0)
-hsla=hsla(194, 27%, 76%, 1.0)
-red=178 green=203 blue=211 alpha=255
-hue=194.54545454545453 sat=27.272727272727266 light=76.27450980392156
+hex=#bcc7db
+rgb=rgb(188, 199, 219)
+hsl=hsl(219, 30%, 80%)
+rgba=rgba(188, 199, 219, 1)
+hsla=hsla(219, 30%, 80%, 1)
+red=188 green=199 blue=219 alpha=1
+hue=218 sat=30 light=79
 
 
 [[ shadow ]]
 hex=#000000
 rgb=rgb(0, 0, 0)
 hsl=hsl(0, 0%, 0%)
-rgba=rgba(0, 0, 0, 1.0)
-hsla=hsla(0, 0%, 0%, 1.0)
-red=0 green=0 blue=0 alpha=255
-hue=0.0 sat=0.0 light=0.0
+rgba=rgba(0, 0, 0, 1)
+hsla=hsla(0, 0%, 0%, 1)
+red=0 green=0 blue=0 alpha=1
+hue=0 sat=0 light=0
 
 
 [[ source_color ]]
-hex=#44626b
-rgb=rgb(68, 98, 107)
-hsl=hsl(193, 22%, 34%)
-rgba=rgba(68, 98, 107, 1.0)
-hsla=hsla(193, 22%, 34%, 1.0)
-red=68 green=98 blue=107 alpha=255
-hue=193.84615384615384 sat=22.285714285714285 light=34.31372549019608
+hex=#4b6282
+rgb=rgb(75, 98, 130)
+hsl=hsl(215, 27%, 40%)
+rgba=rgba(75, 98, 130, 1)
+hsla=hsla(215, 27%, 40%, 1)
+red=75 green=98 blue=130 alpha=1
+hue=214 sat=26 light=40
 
 
 [[ surface ]]
-hex=#0f1416
-rgb=rgb(15, 20, 22)
-hsl=hsl(197, 18%, 7%)
-rgba=rgba(15, 20, 22, 1.0)
-hsla=hsla(197, 18%, 7%, 1.0)
-red=15 green=20 blue=22 alpha=255
-hue=197.14285714285714 sat=18.91891891891892 light=7.254901960784313
+hex=#111318
+rgb=rgb(17, 19, 24)
+hsl=hsl(223, 17%, 8%)
+rgba=rgba(17, 19, 24, 1)
+hsla=hsla(223, 17%, 8%, 1)
+red=17 green=19 blue=24 alpha=1
+hue=222 sat=17 light=8
 
 
 [[ surface_bright ]]
-hex=#343a3c
-rgb=rgb(52, 58, 60)
-hsl=hsl(195, 7%, 21%)
-rgba=rgba(52, 58, 60, 1.0)
-hsla=hsla(195, 7%, 21%, 1.0)
-red=52 green=58 blue=60 alpha=255
-hue=195.0 sat=7.142857142857142 light=21.96078431372549
+hex=#37393e
+rgb=rgb(55, 57, 62)
+hsl=hsl(223, 6%, 23%)
+rgba=rgba(55, 57, 62, 1)
+hsla=hsla(223, 6%, 23%, 1)
+red=55 green=57 blue=62 alpha=1
+hue=222 sat=5 light=22
 
 
 [[ surface_container ]]
-hex=#1b2022
-rgb=rgb(27, 32, 34)
-hsl=hsl(197, 11%, 11%)
-rgba=rgba(27, 32, 34, 1.0)
-hsla=hsla(197, 11%, 11%, 1.0)
-red=27 green=32 blue=34 alpha=255
-hue=197.14285714285714 sat=11.475409836065573 light=11.960784313725489
+hex=#1d2024
+rgb=rgb(29, 32, 36)
+hsl=hsl(214, 11%, 13%)
+rgba=rgba(29, 32, 36, 1)
+hsla=hsla(214, 11%, 13%, 1)
+red=29 green=32 blue=36 alpha=1
+hue=214 sat=10 light=12
 
 
 [[ surface_container_high ]]
-hex=#252b2d
-rgb=rgb(37, 43, 45)
-hsl=hsl(195, 9%, 16%)
-rgba=rgba(37, 43, 45, 1.0)
-hsla=hsla(195, 9%, 16%, 1.0)
-red=37 green=43 blue=45 alpha=255
-hue=195.0 sat=9.75609756097561 light=16.07843137254902
+hex=#272a2f
+rgb=rgb(39, 42, 47)
+hsl=hsl(218, 9%, 17%)
+rgba=rgba(39, 42, 47, 1)
+hsla=hsla(218, 9%, 17%, 1)
+red=39 green=42 blue=47 alpha=1
+hue=217 sat=9 light=16
 
 
 [[ surface_container_highest ]]
-hex=#303638
-rgb=rgb(48, 54, 56)
-hsl=hsl(195, 7%, 20%)
-rgba=rgba(48, 54, 56, 1.0)
-hsla=hsla(195, 7%, 20%, 1.0)
-red=48 green=54 blue=56 alpha=255
-hue=195.0 sat=7.6923076923076925 light=20.392156862745097
+hex=#32353a
+rgb=rgb(50, 53, 58)
+hsl=hsl(218, 7%, 21%)
+rgba=rgba(50, 53, 58, 1)
+hsla=hsla(218, 7%, 21%, 1)
+red=50 green=53 blue=58 alpha=1
+hue=217 sat=7 light=21
 
 
 [[ surface_container_low ]]
-hex=#171c1e
-rgb=rgb(23, 28, 30)
-hsl=hsl(197, 13%, 10%)
-rgba=rgba(23, 28, 30, 1.0)
-hsla=hsla(197, 13%, 10%, 1.0)
-red=23 green=28 blue=30 alpha=255
-hue=197.14285714285714 sat=13.20754716981132 light=10.392156862745097
+hex=#191c20
+rgb=rgb(25, 28, 32)
+hsl=hsl(214, 12%, 11%)
+rgba=rgba(25, 28, 32, 1)
+hsla=hsla(214, 12%, 11%, 1)
+red=25 green=28 blue=32 alpha=1
+hue=214 sat=12 light=11
 
 
 [[ surface_container_lowest ]]
-hex=#090f11
-rgb=rgb(9, 15, 17)
-hsl=hsl(195, 30%, 5%)
-rgba=rgba(9, 15, 17, 1.0)
-hsla=hsla(195, 30%, 5%, 1.0)
-red=9 green=15 blue=17 alpha=255
-hue=195.0 sat=30.76923076923077 light=5.098039215686274
+hex=#0c0e13
+rgb=rgb(12, 14, 19)
+hsl=hsl(223, 23%, 6%)
+rgba=rgba(12, 14, 19, 1)
+hsla=hsla(223, 23%, 6%, 1)
+red=12 green=14 blue=19 alpha=1
+hue=222 sat=22 light=6
 
 
 [[ surface_dim ]]
-hex=#0f1416
-rgb=rgb(15, 20, 22)
-hsl=hsl(197, 18%, 7%)
-rgba=rgba(15, 20, 22, 1.0)
-hsla=hsla(197, 18%, 7%, 1.0)
-red=15 green=20 blue=22 alpha=255
-hue=197.14285714285714 sat=18.91891891891892 light=7.254901960784313
+hex=#111318
+rgb=rgb(17, 19, 24)
+hsl=hsl(223, 17%, 8%)
+rgba=rgba(17, 19, 24, 1)
+hsla=hsla(223, 17%, 8%, 1)
+red=17 green=19 blue=24 alpha=1
+hue=222 sat=17 light=8
 
 
 [[ surface_tint ]]
-hex=#85d2e8
-rgb=rgb(133, 210, 232)
-hsl=hsl(193, 68%, 71%)
-rgba=rgba(133, 210, 232, 1.0)
-hsla=hsla(193, 68%, 71%, 1.0)
-red=133 green=210 blue=232 alpha=255
-hue=193.33333333333334 sat=68.27586206896551 light=71.56862745098039
+hex=#a4c9fe
+rgb=rgb(164, 201, 254)
+hsl=hsl(215, 98%, 82%)
+rgba=rgba(164, 201, 254, 1)
+hsla=hsla(215, 98%, 82%, 1)
+red=164 green=201 blue=254 alpha=1
+hue=215 sat=97 light=81
 
 
 [[ surface_variant ]]
-hex=#3f484b
-rgb=rgb(63, 72, 75)
-hsl=hsl(195, 8%, 27%)
-rgba=rgba(63, 72, 75, 1.0)
-hsla=hsla(195, 8%, 27%, 1.0)
-red=63 green=72 blue=75 alpha=255
-hue=195.00000000000003 sat=8.695652173913041 light=27.058823529411768
+hex=#43474e
+rgb=rgb(67, 71, 78)
+hsl=hsl(218, 8%, 28%)
+rgba=rgba(67, 71, 78, 1)
+hsla=hsla(218, 8%, 28%, 1)
+red=67 green=71 blue=78 alpha=1
+hue=218 sat=7 light=28
 
 
 [[ tertiary ]]
-hex=#bfc4eb
-rgb=rgb(191, 196, 235)
-hsl=hsl(233, 52%, 83%)
-rgba=rgba(191, 196, 235, 1.0)
-hsla=hsla(233, 52%, 83%, 1.0)
-red=191 green=196 blue=235 alpha=255
-hue=233.1818181818182 sat=52.38095238095234 light=83.52941176470587
+hex=#d9bde3
+rgb=rgb(217, 189, 227)
+hsl=hsl(284, 40%, 82%)
+rgba=rgba(217, 189, 227, 1)
+hsla=hsla(284, 40%, 82%, 1)
+red=217 green=189 blue=227 alpha=1
+hue=284 sat=40 light=81
 
 
 [[ tertiary_container ]]
-hex=#3f4565
-rgb=rgb(63, 69, 101)
-hsl=hsl(230, 23%, 32%)
-rgba=rgba(63, 69, 101, 1.0)
-hsla=hsla(230, 23%, 32%, 1.0)
-red=63 green=69 blue=101 alpha=255
-hue=230.52631578947367 sat=23.17073170731707 light=32.15686274509804
+hex=#543f5e
+rgb=rgb(84, 63, 94)
+hsl=hsl(281, 20%, 31%)
+rgba=rgba(84, 63, 94, 1)
+hsla=hsla(281, 20%, 31%, 1)
+red=84 green=63 blue=94 alpha=1
+hue=280 sat=19 light=30
 
 
 [[ tertiary_fixed ]]
-hex=#dee0ff
-rgb=rgb(222, 224, 255)
-hsl=hsl(236, 100%, 93%)
-rgba=rgba(222, 224, 255, 1.0)
-hsla=hsla(236, 100%, 93%, 1.0)
-red=222 green=224 blue=255 alpha=255
-hue=236.36363636363637 sat=100.0 light=93.52941176470588
+hex=#f5d9ff
+rgb=rgb(245, 217, 255)
+hsl=hsl(284, 100%, 93%)
+rgba=rgba(245, 217, 255, 1)
+hsla=hsla(284, 100%, 93%, 1)
+red=245 green=217 blue=255 alpha=1
+hue=284 sat=100 light=92
 
 
 [[ tertiary_fixed_dim ]]
-hex=#bfc4eb
-rgb=rgb(191, 196, 235)
-hsl=hsl(233, 52%, 83%)
-rgba=rgba(191, 196, 235, 1.0)
-hsla=hsla(233, 52%, 83%, 1.0)
-red=191 green=196 blue=235 alpha=255
-hue=233.1818181818182 sat=52.38095238095234 light=83.52941176470587
+hex=#d9bde3
+rgb=rgb(217, 189, 227)
+hsl=hsl(284, 40%, 82%)
+rgba=rgba(217, 189, 227, 1)
+hsla=hsla(284, 40%, 82%, 1)
+red=217 green=189 blue=227 alpha=1
+hue=284 sat=40 light=81
 
 
 
 # === CORES LIGHT vs DARK (hex) ===
 
-background -> light=#f5fafc | dark=#0f1416
+background -> light=#f8f9ff | dark=#111318
 
 error -> light=#ba1a1a | dark=#ffb4ab
 
 error_container -> light=#ffdad6 | dark=#93000a
 
-inverse_on_surface -> light=#ecf2f4 | dark=#2c3133
+inverse_on_surface -> light=#eff0f7 | dark=#2e3035
 
-inverse_primary -> light=#85d2e8 | dark=#00687b
+inverse_primary -> light=#a4c9fe | dark=#3a608f
 
-inverse_surface -> light=#2c3133 | dark=#dee3e6
+inverse_surface -> light=#2e3035 | dark=#e1e2e9
 
-on_background -> light=#171c1e | dark=#dee3e6
+on_background -> light=#191c20 | dark=#e1e2e9
 
 on_error -> light=#ffffff | dark=#690005
 
 on_error_container -> light=#410002 | dark=#ffdad6
 
-on_primary -> light=#ffffff | dark=#003641
+on_primary -> light=#ffffff | dark=#00315c
 
-on_primary_container -> light=#001f26 | dark=#aeecff
+on_primary_container -> light=#001c39 | dark=#d3e3ff
 
-on_primary_fixed -> light=#001f26 | dark=#001f26
+on_primary_fixed -> light=#001c39 | dark=#001c39
 
-on_primary_fixed_variant -> light=#004e5d | dark=#004e5d
+on_primary_fixed_variant -> light=#1f4876 | dark=#1f4876
 
-on_secondary -> light=#ffffff | dark=#1d343a
+on_secondary -> light=#ffffff | dark=#263141
 
-on_secondary_container -> light=#061f25 | dark=#cee7ef
+on_secondary_container -> light=#111c2b | dark=#d8e3f8
 
-on_secondary_fixed -> light=#061f25 | dark=#061f25
+on_secondary_fixed -> light=#111c2b | dark=#111c2b
 
-on_secondary_fixed_variant -> light=#344a51 | dark=#344a51
+on_secondary_fixed_variant -> light=#3c4758 | dark=#3c4758
 
-on_surface -> light=#171c1e | dark=#dee3e6
+on_surface -> light=#191c20 | dark=#e1e2e9
 
-on_surface_variant -> light=#3f484b | dark=#bfc8cb
+on_surface_variant -> light=#43474e | dark=#c3c6cf
 
-on_tertiary -> light=#ffffff | dark=#292e4d
+on_tertiary -> light=#ffffff | dark=#3c2946
 
-on_tertiary_container -> light=#141937 | dark=#dee0ff
+on_tertiary_container -> light=#261430 | dark=#f5d9ff
 
-on_tertiary_fixed -> light=#141937 | dark=#141937
+on_tertiary_fixed -> light=#261430 | dark=#261430
 
-on_tertiary_fixed_variant -> light=#3f4565 | dark=#3f4565
+on_tertiary_fixed_variant -> light=#543f5e | dark=#543f5e
 
-outline -> light=#70787c | dark=#899295
+outline -> light=#73777f | dark=#8d9199
 
-outline_variant -> light=#bfc8cb | dark=#3f484b
+outline_variant -> light=#c3c6cf | dark=#43474e
 
-primary -> light=#00687b | dark=#85d2e8
+primary -> light=#3a608f | dark=#a4c9fe
 
-primary_container -> light=#aeecff | dark=#004e5d
+primary_container -> light=#d3e3ff | dark=#1f4876
 
-primary_fixed -> light=#aeecff | dark=#aeecff
+primary_fixed -> light=#d3e3ff | dark=#d3e3ff
 
-primary_fixed_dim -> light=#85d2e8 | dark=#85d2e8
+primary_fixed_dim -> light=#a4c9fe | dark=#a4c9fe
 
 scrim -> light=#000000 | dark=#000000
 
-secondary -> light=#4b6269 | dark=#b2cbd3
+secondary -> light=#545f70 | dark=#bcc7db
 
-secondary_container -> light=#cee7ef | dark=#344a51
+secondary_container -> light=#d8e3f8 | dark=#3c4758
 
-secondary_fixed -> light=#cee7ef | dark=#cee7ef
+secondary_fixed -> light=#d8e3f8 | dark=#d8e3f8
 
-secondary_fixed_dim -> light=#b2cbd3 | dark=#b2cbd3
+secondary_fixed_dim -> light=#bcc7db | dark=#bcc7db
 
 shadow -> light=#000000 | dark=#000000
 
-source_color -> light=#44626b | dark=#44626b
+source_color -> light=#4b6282 | dark=#4b6282
 
-surface -> light=#f5fafc | dark=#0f1416
+surface -> light=#f8f9ff | dark=#111318
 
-surface_bright -> light=#f5fafc | dark=#343a3c
+surface_bright -> light=#f8f9ff | dark=#37393e
 
-surface_container -> light=#e9eff1 | dark=#1b2022
+surface_container -> light=#ededf4 | dark=#1d2024
 
-surface_container_high -> light=#e4e9eb | dark=#252b2d
+surface_container_high -> light=#e7e8ee | dark=#272a2f
 
-surface_container_highest -> light=#dee3e6 | dark=#303638
+surface_container_highest -> light=#e1e2e9 | dark=#32353a
 
-surface_container_low -> light=#eff4f7 | dark=#171c1e
+surface_container_low -> light=#f2f3fa | dark=#191c20
 
-surface_container_lowest -> light=#ffffff | dark=#090f11
+surface_container_lowest -> light=#ffffff | dark=#0c0e13
 
-surface_dim -> light=#d5dbdd | dark=#0f1416
+surface_dim -> light=#d9dae0 | dark=#111318
 
-surface_tint -> light=#00687b | dark=#85d2e8
+surface_tint -> light=#3a608f | dark=#a4c9fe
 
-surface_variant -> light=#dbe4e7 | dark=#3f484b
+surface_variant -> light=#dfe2eb | dark=#43474e
 
-tertiary -> light=#575c7e | dark=#bfc4eb
+tertiary -> light=#6d5677 | dark=#d9bde3
 
-tertiary_container -> light=#dee0ff | dark=#3f4565
+tertiary_container -> light=#f5d9ff | dark=#543f5e
 
-tertiary_fixed -> light=#dee0ff | dark=#dee0ff
+tertiary_fixed -> light=#f5d9ff | dark=#f5d9ff
 
-tertiary_fixed_dim -> light=#bfc4eb | dark=#bfc4eb
+tertiary_fixed_dim -> light=#d9bde3 | dark=#d9bde3
 

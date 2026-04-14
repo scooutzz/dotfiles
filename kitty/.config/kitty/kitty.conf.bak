@@ -26,9 +26,4 @@ window_padding_height 4
 confirm_os_window_close 0
 show_window_riseze_notification no
 
-# include colors.conf
-
-# BEGIN_KITTY_THEME
-# Rosé Pine
-include current-theme.conf
-# END_KITTY_THEME
+include colors.conf
