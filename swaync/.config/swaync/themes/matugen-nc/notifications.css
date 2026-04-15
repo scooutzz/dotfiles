@@ -12,13 +12,11 @@
 @define-color urgent          @error;
 
 * {
-
   color: @text;
   all: unset;
   font-size: 16px;
   font-family: "GeistMono Nerd Font Propo";
   transition: 200ms;
-
 }
 
 .notification-row {
@@ -30,43 +28,76 @@
 
 .floating-notifications.background .notification-row .notification-background {
   background: @background;
-  box-shadow: 0 0 8px 0 rgba(0,0,0,.6);
-  border: 1px solid @selected;
-  border-radius: 24px;
-  margin: 16px;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.6);
+  border: 2px solid @selected;
+  border-radius: 5px;
+  margin: 4px;
   padding: 0;
 }
 
-.floating-notifications.background .notification-row .notification-background .notification {
-  padding: 6px;
-  border-radius: 12px;
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification {
+  /* padding: 6px; */
+  /* border-radius: 5px; */
 }
 
-.floating-notifications.background .notification-row .notification-background .notification.critical {
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification.critical {
   border: 2px solid @urgent;
 }
 
-.floating-notifications.background .notification-row .notification-background .notification .notification-content {
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content {
   margin: 14px;
 }
 
-.floating-notifications.background .notification-row .notification-background .notification > *:last-child > * {
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > * {
   min-height: 3.4em;
 }
 
-.floating-notifications.background .notification-row .notification-background .notification > *:last-child > * .notification-action {
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > *
+  .notification-action {
   border-radius: 8px;
-  background-color: @background-alt ;
+  background-color: @background-alt;
   margin: 6px;
   border: 1px solid transparent;
 }
 
-.floating-notifications.background .notification-row .notification-background .notification > *:last-child > * .notification-action:hover {
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > *
+  .notification-action:hover {
   background-color: @hover;
   border: 1px solid @selected;
 }
 
-.floating-notifications.background .notification-row .notification-background .notification > *:last-child > * .notification-action:active {
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > *
+  .notification-action:active {
   background-color: @selected;
   color: @background;
 }
@@ -84,7 +115,10 @@
   font-size: 0.8rem;
 }
 
-.floating-notifications.background .notification-row .notification-background .close-button {
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .close-button {
   margin: 6px;
   padding: 2px;
   border-radius: 6px;
@@ -92,12 +126,18 @@
   border: 1px solid transparent;
 }
 
-.floating-notifications.background .notification-row .notification-background .close-button:hover {
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .close-button:hover {
   background-color: @selected;
   color: @background;
 }
 
-.floating-notifications.background .notification-row .notification-background .close-button:active {
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .close-button:active {
   background-color: @selected;
   color: @background;
 }
@@ -110,4 +150,3 @@
 .notification.normal progress {
   background-color: @selected;
 }
-
