@@ -1,4 +1,4 @@
-@import "matugen/matugen-waybar.css";
+@import "colors.css";
 
 * {
   /* font-family: JetbrainsMono Nerd Font; */
@@ -10,7 +10,7 @@
 
 #waybar {
   background: transparent;
-  color: @primary;
+  color: @inverse_primary;
   margin: 2px 2px;
 }
 
@@ -88,7 +88,6 @@
 }
 
 #clock {
-  color: @primary;
   border-radius: 5px;
   margin-right: 0.5rem;
 }

@@ -1,14 +1,4 @@
-/***
- *    ┓ ┏┓ ┏┓┏┓┏┓┳┳┏┳┓
- *    ┃┃┃┃ ┃┃┃┓┃┃┃┃ ┃ 
- *    ┗┻┛┗┛┗┛┗┛┗┛┗┛ ┻ 
- *                    
- */
-
-/* wallust-wlogout */
-
-/* Importing wllust colors */
-@import "/home/relaxou/.config/waybar/matugen/matugen-waybar.css";
+@import "/home/relaxou/.config/waybar/colors.css";
 
 window {
   /* font-family: JetBrains Mono Nerd Font; */

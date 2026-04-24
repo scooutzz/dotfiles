@@ -1,17 +1,7 @@
-/***
- *    ┏┓┏┓┓ ┏┓┳┓┏┓
- *    ┃ ┃┃┃ ┃┃┣┫┗┓
- *    ┗┛┗┛┗┛┗┛┛┗┗┛
- *                
- */
-
-
-/*--------Importing matugen colors-----*/
-@import '~/.config/rofi/matugen/matugen-rofi.rasi'
-
+/*--------Importing colors-----*/
+@import '~/.config/rofi/colors/colors.rasi'
 
 /*--------Color definitions------------*/
-
 * {
        background:       @surface;
        background-alt:   @surface-container-highest;

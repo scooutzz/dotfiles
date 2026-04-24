@@ -5,8 +5,8 @@ THEMES=(
 	"rose-pine"
 	"tokyo-night"
 	"catppuccinno-mocha"
-	"catppuccinno-frappe"
-	"catppuccinno-macchiato"
+	"gruvbox"
+	"everforest"
 )
 
 function list_themes() {
@@ -30,8 +30,8 @@ declare -A THEME_MAP=(
 	["rose-pine"]="Rosé Pine | rose-pine"
 	["tokyo-night"]="Tokyo Night | tokyonight-night"
 	["catppuccin-mocha"]="Catppuccin-Mocha | catppuccin-mocha"
-	["catppuccin-frappe"]="Catppuccin-Frappe | catppuccin-frappe"
-	["catppuccin-macchiato"]="Catppuccin-Macchiato | catppuccin-macchiato"
+	["gruvbox"]="Gruvbox Dark | gruvbox"
+	["everforest"]="Everforest Dark Medium | everforest"
 )
 
 THEME="$1"
@@ -59,3 +59,28 @@ if [[ -n "$NVIM_THEME" ]]; then
 		nvim --server "$server" --remote-send "<Esc>:colorscheme $NVIM_THEME<CR>"
 	done < <(find "/run/user/$(id -u)" -name "nvim.*.0" 2>/dev/null)
 fi
+
+THEME_DIR="$HOME/.config/themes/$THEME"
+
+if [[ ! -d "$THEME_DIR" ]]; then
+	notify-send "Theme Switcher" "Theme directory for theme '$THEME' does not exist." --icon=dialog-warning
+	exit 1
+fi
+
+# Link Waybar
+ln -sf "$THEME_DIR/colors.css" "$HOME/.config/waybar/colors.css"
+pkill waybar
+sleep 0.1
+waybar &
+disown
+
+# Link Hyprland
+ln -sf "$THEME_DIR/colors-hyprland.conf" "$HOME/.config/hypr/ui/colors.conf"
+hyprctl reload
+
+# Link Swaync
+ln -sf "$THEME_DIR/colors.css" "$HOME/.config/swaync/nc/colors.css"
+reload-swaync
+
+# Link Rofi
+ln -sf "$THEME_DIR/colors.rasi" "$HOME/.config/rofi/colors/colors.rasi"

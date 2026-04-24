@@ -1,32 +1,18 @@
 #!/usr/bin/env bash
-# Omarchy menu (Rofi) — foco no menu "Install" com main menu e navegação de volta
 
 set -euo pipefail
 
-# Opcional: manter compat com seus binários omarchy
 export PATH="$HOME/.local/share/relaxou/bin:$PATH"
 
-# Tema do Rofi
+# Rofi Theme
 THEME="${HOME}/.config/rofi/applets/menu.rasi"
 
-# Se já existe um Rofi aberto, fecha (mesmo padrão do seu cliphist)
 if pidof rofi >/dev/null; then
 	pkill rofi
 fi
 
-# Quando invocado direto num submenu, cancelar sai do script (em vez de voltar)
 BACK_TO_EXIT=false
 
-# -------------------- Helpers de UI --------------------
-
-# menu(prompt, options, [extra], [preselect])
-# - options: string com \n entre itens (pode incluir glifos Nerd Font)
-# - extra: suporta "-w N" (largura) e será mapeado via -theme-str
-# - preselect: texto de uma linha para pré-selecionar
-# Retorno:
-# - ecoa a linha escolhida
-# - se cancelar: ecoa "CNCLD" e retorna 1
-# - se Alt+Left: ecoa "BACK" e retorna 10
 menu() {
 	local prompt="$1"
 	local options="$2"
@@ -35,13 +21,11 @@ menu() {
 
 	local -a args=(-i -dmenu -p "$prompt" -theme "$THEME" -kb-custom-1 "Alt-Left")
 
-	# Suporte simples a largura (-w N)
 	if [[ "$extra" =~ -w[[:space:]]+([0-9]+) ]]; then
 		local w="${BASH_REMATCH[1]}"
 		args+=(-theme-str "window { width: ${w}px; }")
 	fi
 
-	# Pré-seleção 1-based -> 0-based
 	if [[ -n "$preselect" ]]; then
 		local idx
 		idx=$(printf "%b" "$options" | grep -nxF "$preselect" | cut -d: -f1 || true)
@@ -74,16 +58,11 @@ menu() {
 	esac
 }
 
-# -------------------- Helpers de execução --------------------
-
 terminal() {
-	# Ajuste seu terminal preferido se necessário
-	# alacritty --class=Omarchy -e "$@"
 	kitty -e --class=relaxou "$@"
 }
 
 present_terminal() {
-	# Mantém compat com seu script original
 	launch-floating-terminal-with-presentation "$1"
 }
 
@@ -103,8 +82,6 @@ aur_install_and_launch() {
 	present_terminal "echo 'Installing $1 from AUR...'; yay -S --noconfirm $2 && setsid gtk-launch $3"
 }
 
-# -------------------- Navegação (voltar) --------------------
-
 back_to() {
 	local parent_menu="${1:-}"
 	if [[ "$BACK_TO_EXIT" == "true" ]]; then
@@ -116,8 +93,6 @@ back_to() {
 	fi
 }
 
-# -------------------- Menus --------------------
-
 show_main_menu() {
 	local sel
 	sel="$(menu "Go" $'󰉉 Install\n󰭌  Remove\n  Themes\n  About')" || true
@@ -128,7 +103,6 @@ show_main_menu() {
 	*themes*) show_theme_switcher_menu ;;
 	*about*) launch-about ;;
 	cncld | back | "")
-		# Esc/Alt+Left no main encerra
 		exit 0
 		;;
 	*)
@@ -178,14 +152,14 @@ show_install_style_menu() {
 
 show_theme_switcher_menu() {
 	local sel
-	sel="$(menu "Switch Theme" $'󰸌 Rosé Pine\n󰸌 Tokyo Night\n󰸌 Catppuccin Mocha\n󰸌 Catppuccin Frappe\n󰸌 Catppuccin Macchiato')" || true
+	sel="$(menu "Switch Theme" $'󰸌 Rosé Pine\n󰸌 Tokyo Night\n󰸌 Catppuccin\n󰸌 Gruvbox\n󰸌 Everforest')" || true
 
 	case "${sel,,}" in
 	*rosé*) change_theme 'rose-pine' ;;
 	*tokyo*) change_theme 'tokyo-night' ;;
-	*mocha*) change_theme 'catppuccin-mocha' ;;
-	*frappe*) change_theme 'catppuccin-frappe' ;;
-	*macchiato*) change_theme 'catppuccin-macchiato' ;;
+	*catppuccin*) change_theme 'catppuccin-mocha' ;;
+	*gruvbox*) change_theme 'gruvbox' ;;
+	*everforest*) change_theme 'everforest' ;;
 	cncld | back | "")
 		back_to show_main_menu
 		;;
@@ -199,21 +173,16 @@ change_theme() {
 	theme-switcher "$1"
 }
 
-# -------------------- Router --------------------
-
 go_to_menu() {
 	case "${1,,}" in
 	*install*) show_install_menu ;;
 	*remove*) show_remove_menu ;;
-	# Demais entradas ainda não migradas; pode expandir aqui
 	*apps* | *learn* | *trigger* | *style* | *setup* | *update* | *about* | *system*)
 		show_main_menu
 		;;
 	*) show_main_menu ;;
 	esac
 }
-
-# -------------------- Entry point --------------------
 
 if [[ -n "${1:-}" ]]; then
 	BACK_TO_EXIT=true

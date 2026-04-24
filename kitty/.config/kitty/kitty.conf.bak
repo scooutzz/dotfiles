@@ -27,9 +27,7 @@ confirm_os_window_close 0
 show_window_riseze_notification no
 clipboard_control write-clipboard write-primary read-clipboard read-primary
 
-# include colors.conf
-
 # BEGIN_KITTY_THEME
-# Catppuccin-Mocha
+# Tokyo Night
 include current-theme.conf
 # END_KITTY_THEME
