@@ -4,7 +4,7 @@
 set -euo pipefail
 
 # Opcional: manter compat com seus binários omarchy
-export PATH="$HOME/.local/share/omarchy/bin:$PATH"
+export PATH="$HOME/.local/share/relaxou/bin:$PATH"
 
 # Tema do Rofi
 THEME="${HOME}/.config/rofi/applets/menu.rasi"
@@ -46,7 +46,7 @@ menu() {
 		local idx
 		idx=$(printf "%b" "$options" | grep -nxF "$preselect" | cut -d: -f1 || true)
 		if [[ -n "${idx:-}" ]]; then
-			args+=(-selected-row "$(( idx - 1 ))")
+			args+=(-selected-row "$((idx - 1))")
 		fi
 	fi
 
@@ -55,10 +55,22 @@ menu() {
 	local code=$?
 
 	case "$code" in
-		0)  printf '%s' "$selection"; return 0 ;;
-		1)  printf '%s' "CNCLD"; return 1 ;;
-		10) printf '%s' "BACK";  return 10 ;;
-		*)  printf '%s' "CNCLD"; return "$code" ;;
+	0)
+		printf '%s' "$selection"
+		return 0
+		;;
+	1)
+		printf '%s' "CNCLD"
+		return 1
+		;;
+	10)
+		printf '%s' "BACK"
+		return 10
+		;;
+	*)
+		printf '%s' "CNCLD"
+		return "$code"
+		;;
 	esac
 }
 
@@ -75,25 +87,12 @@ present_terminal() {
 	launch-floating-terminal-with-presentation "$1"
 }
 
-open_in_editor() {
-	notify-send "Editing config file" "$1"
-	omarchy-launch-editor "$1"
-}
-
 install() {
 	present_terminal "echo 'Installing $1...'; sudo pacman -S --noconfirm $2"
 }
 
 install_and_launch() {
 	present_terminal "echo 'Installing $1...'; sudo pacman -S --noconfirm $2 && setsid gtk-launch $3"
-}
-
-install_font() {
-	present_terminal "echo 'Installing $1...'; sudo pacman -S --noconfirm --needed $2 && sleep 2 && omarchy-font-set '$3'"
-}
-
-install_terminal() {
-	present_terminal "omarchy-install-terminal $1"
 }
 
 aur_install() {
@@ -121,19 +120,20 @@ back_to() {
 
 show_main_menu() {
 	local sel
-	sel="$(menu "Go" $'󰉉 Install\n󰭌  Remove\n  About')" || true
+	sel="$(menu "Go" $'󰉉 Install\n󰭌  Remove\n  Themes\n  About')" || true
 
 	case "${sel,,}" in
-		*install*) show_install_menu ;;
-		*remove*) show_remove_menu ;;
-		*about*) launch-about ;;
-		cncld|back|"")
-			# Esc/Alt+Left no main encerra
-			exit 0
-			;;
-		*)
-			show_main_menu
-			;;
+	*install*) show_install_menu ;;
+	*remove*) show_remove_menu ;;
+	*themes*) show_theme_switcher_menu ;;
+	*about*) launch-about ;;
+	cncld | back | "")
+		# Esc/Alt+Left no main encerra
+		exit 0
+		;;
+	*)
+		show_main_menu
+		;;
 	esac
 }
 
@@ -142,13 +142,13 @@ show_install_menu() {
 	sel="$(menu "Install" $'󰣇  Package\n󰣇  AUR\n  Web App\n  TUI\n  Style')" || true
 
 	case "$sel" in
-		*Package*)     terminal pkg-install ;;
-		*AUR*)         terminal pkg-aur-install ;;
-		*Web*)         present_terminal webapp-install ;;
-		*TUI*)         present_terminal tui-install ;;
-		*Style*)       show_install_style_menu ;;
-		CNCLD|BACK|"") back_to show_main_menu ;;
-		*)             show_install_menu ;;
+	*Package*) terminal pkg-install ;;
+	*AUR*) terminal pkg-aur-install ;;
+	*Web*) present_terminal webapp-install ;;
+	*TUI*) present_terminal tui-install ;;
+	*Style*) show_install_style_menu ;;
+	CNCLD | BACK | "") back_to show_main_menu ;;
+	*) show_install_menu ;;
 	esac
 }
 
@@ -157,10 +157,10 @@ show_remove_menu() {
 	sel=$(menu "Remove" "󰣇  Package\n  Web App\n  TUI")
 
 	case "$sel" in
-		*Package*) terminal pkg-remove ;;
-		*Web*) present_terminal webapp-remove ;;
-		*TUI*) present_terminal tui-remove ;;
-		*) show_main_menu ;;
+	*Package*) terminal pkg-remove ;;
+	*Web*) present_terminal webapp-remove ;;
+	*TUI*) present_terminal tui-remove ;;
+	*) show_main_menu ;;
 	esac
 }
 
@@ -169,26 +169,48 @@ show_install_style_menu() {
 	sel="$(menu "Install" $'󰸌  Theme\n  Background\n  Font')" || true
 
 	case "$sel" in
-		*Theme*)      present_terminal omarchy-theme-install ;;
-		*Background*) nautilus ~/.config/omarchy/current/theme/backgrounds ;;
-		*Font*)       show_install_font_menu ;;
-		CNCLD|BACK|"") show_install_menu ;;
-		*)            show_install_style_menu ;;
+	*Theme*) present_terminal omarchy-theme-install ;;
+	*Background*) nautilus ~/.config/backgrounds ;;
+	CNCLD | BACK | "") show_install_menu ;;
+	*) show_install_style_menu ;;
 	esac
+}
+
+show_theme_switcher_menu() {
+	local sel
+	sel="$(menu "Switch Theme" $'󰸌 Rosé Pine\n󰸌 Tokyo Night\n󰸌 Catppuccin Mocha\n󰸌 Catppuccin Frappe\n󰸌 Catppuccin Macchiato')" || true
+
+	case "${sel,,}" in
+	*rosé*) change_theme 'rose-pine' ;;
+	*tokyo*) change_theme 'tokyo-night' ;;
+	*mocha*) change_theme 'catppuccin-mocha' ;;
+	*frappe*) change_theme 'catppuccin-frappe' ;;
+	*macchiato*) change_theme 'catppuccin-macchiato' ;;
+	cncld | back | "")
+		back_to show_main_menu
+		;;
+	*)
+		show_theme_switcher_menu
+		;;
+	esac
+}
+
+change_theme() {
+	theme-switcher "$1"
 }
 
 # -------------------- Router --------------------
 
 go_to_menu() {
 	case "${1,,}" in
-		*install*) show_install_menu ;;
-		*remove*) show_remove_menu ;;
-		# Demais entradas ainda não migradas; pode expandir aqui
-		*apps*|*learn*|*trigger*|*style*|*setup*|*update*|*about*|*system*)
+	*install*) show_install_menu ;;
+	*remove*) show_remove_menu ;;
+	# Demais entradas ainda não migradas; pode expandir aqui
+	*apps* | *learn* | *trigger* | *style* | *setup* | *update* | *about* | *system*)
 		show_main_menu
 		;;
 	*) show_main_menu ;;
-esac
+	esac
 }
 
 # -------------------- Entry point --------------------

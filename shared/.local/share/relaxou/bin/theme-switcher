@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+# Theme Switcher
+
+THEMES=(
+	"rose-pine"
+	"tokyo-night"
+	"catppuccinno-mocha"
+	"catppuccinno-frappe"
+	"catppuccinno-macchiato"
+)
+
+function list_themes() {
+	for theme in "${THEMES[@]}"; do
+		echo "  - $theme"
+	done
+}
+
+if [ -z "$1" ]; then
+	echo "Use: $0 <theme>"
+	echo "Available Themes:"
+	for theme in "${THEMES[@]}"; do
+		echo "  - $theme"
+	done
+	exit 1
+fi
+
+# Mapping
+# Kitty | Neovim
+declare -A THEME_MAP=(
+	["rose-pine"]="Rosé Pine | rose-pine"
+	["tokyo-night"]="Tokyo Night | tokyonight-night"
+	["catppuccin-mocha"]="Catppuccin-Mocha | catppuccin-mocha"
+	["catppuccin-frappe"]="Catppuccin-Frappe | catppuccin-frappe"
+	["catppuccin-macchiato"]="Catppuccin-Macchiato | catppuccin-macchiato"
+)
+
+THEME="$1"
+
+if [ -z "${THEME_MAP[$THEME]}" ]; then
+	echo "Theme '$THEME' not configured yet... Try one of the following:"
+	list_themes
+	exit 1
+fi
+
+IFS='|' read -r KITTY_THEME NVIM_THEME <<<"${THEME_MAP[$THEME]}"
+KITTY_THEME=$(echo "$KITTY_THEME" | xargs)
+NVIM_THEME=$(echo "$NVIM_THEME" | xargs)
+
+if [[ -n "$KITTY_THEME" ]]; then
+	echo "Updating Kitty..."
+	kitty +kitten themes "$KITTY_THEME"
+	kill -SIGUSR1 $(pgrep kitty)
+fi
+
+if [[ -n "$NVIM_THEME" ]]; then
+	echo "Updating Neovim..."
+	echo "$NVIM_THEME" >"$HOME/.local/state/nvim/current-theme"
+	while IFS= read -r server; do
+		nvim --server "$server" --remote-send "<Esc>:colorscheme $NVIM_THEME<CR>"
+	done < <(find "/run/user/$(id -u)" -name "nvim.*.0" 2>/dev/null)
+fi

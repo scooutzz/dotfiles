@@ -83,11 +83,6 @@ output_path = '~/.config/qt6ct/colors/matugen-qt6ct.conf'
 input_path = '~/.config/matugen/templates/matugen.kvconfig'
 output_path = '~/.config/Kvantum/matugen/matugen.kvconfig'
 
-# Neovim
-[templates.neovim]
-input_path = '~/.config/matugen/templates/neovim.lua'
-output_path = '~/.config/nvim/lua/custom/matugen.lua'
-
 [templates.dump]
 input_path = "~/.config/matugen/templates/dump-colors.tmpl"
 output_path = "~/.config/matugen/dump-colors.txt"

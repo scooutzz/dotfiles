@@ -25,5 +25,11 @@ window_padding_width 4
 window_padding_height 4
 confirm_os_window_close 0
 show_window_riseze_notification no
+clipboard_control write-clipboard write-primary read-clipboard read-primary
 
-include colors.conf
+# include colors.conf
+
+# BEGIN_KITTY_THEME
+# Catppuccin-Mocha
+include current-theme.conf
+# END_KITTY_THEME
