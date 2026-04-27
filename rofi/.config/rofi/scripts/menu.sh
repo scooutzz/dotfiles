@@ -152,7 +152,7 @@ show_install_style_menu() {
 
 show_theme_switcher_menu() {
 	local sel
-	sel="$(menu "Switch Theme" $'󰸌 Rosé Pine\n󰸌 Tokyo Night\n󰸌 Catppuccin\n󰸌 Gruvbox\n󰸌 Everforest')" || true
+	sel="$(menu "Switch Theme" $'󰸌 Rosé Pine\n󰸌 Tokyo Night\n󰸌 Catppuccin\n󰸌 Gruvbox\n󰸌 Everforest\n󰸌 Nord')" || true
 
 	case "${sel,,}" in
 	*rosé*) change_theme 'rose-pine' ;;
@@ -160,6 +160,7 @@ show_theme_switcher_menu() {
 	*catppuccin*) change_theme 'catppuccin-mocha' ;;
 	*gruvbox*) change_theme 'gruvbox' ;;
 	*everforest*) change_theme 'everforest' ;;
+	*nord*) change_theme 'nord' ;;
 	cncld | back | "")
 		back_to show_main_menu
 		;;
@@ -177,6 +178,7 @@ go_to_menu() {
 	case "${1,,}" in
 	*install*) show_install_menu ;;
 	*remove*) show_remove_menu ;;
+	*themes*) show_theme_switcher_menu ;;
 	*apps* | *learn* | *trigger* | *style* | *setup* | *update* | *about* | *system*)
 		show_main_menu
 		;;

@@ -7,6 +7,7 @@ THEMES=(
 	"catppuccinno-mocha"
 	"gruvbox"
 	"everforest"
+	"nord"
 )
 
 function list_themes() {
@@ -32,6 +33,7 @@ declare -A THEME_MAP=(
 	["catppuccin-mocha"]="Catppuccin-Mocha | catppuccin-mocha"
 	["gruvbox"]="Gruvbox Dark | gruvbox"
 	["everforest"]="Everforest Dark Medium | everforest"
+	["nord"]="Nord | nord"
 )
 
 THEME="$1"
@@ -77,6 +79,14 @@ disown
 # Link Hyprland
 ln -sf "$THEME_DIR/colors-hyprland.conf" "$HOME/.config/hypr/ui/colors.conf"
 hyprctl reload
+
+# Link Backgrounds
+ln -sf -n "$THEME_DIR/backgrounds" "$HOME/.config/backgrounds"
+WALLS_DIR="$THEME_DIR/backgrounds"
+WALL=$(find "$WALLS_DIR" -maxdepth 1 -type f | sort | head -n 1)
+awww img "$WALL" --transition-type outer --transition-step 90 --transition-pos 0.854,0.977
+matugenMagick "$WALL"
+sed -i "s|^\$image = .*|\$image = $WALL|" "$HOME/.config/hypr/ui/image.conf"
 
 # Link Swaync
 ln -sf "$THEME_DIR/colors.css" "$HOME/.config/swaync/nc/colors.css"
