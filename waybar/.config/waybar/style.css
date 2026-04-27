@@ -24,6 +24,7 @@
   color: @inverse_primary;
   border-radius: 5px;
   padding: 0.4rem;
+  border: 0px;
 }
 
 #workspaces button.active {
