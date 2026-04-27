@@ -7,4 +7,5 @@
 	primary-fixed-alpha: rgba(235, 188, 186, 0.2);
 	tertiary: #c4a7e7;
 	error: #eb6f92;
+	selected: #21202e;
 }
