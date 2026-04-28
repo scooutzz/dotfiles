@@ -10,7 +10,7 @@
 
 #waybar {
   background: transparent;
-  color: @inverse_primary;
+  color: @foreground;
   margin: 2px 2px;
 }
 
@@ -21,7 +21,7 @@
 }
 
 #workspaces button {
-  color: @inverse_primary;
+  color: @foreground;
   border-radius: 5px;
   padding: 0.4rem;
   border: 0px;
@@ -64,15 +64,15 @@
 }
 
 #custom-stream_status.up {
-  color: #c3e88d;
+  color: @success;
 }
 
 #custom-stream_status.warning {
-  color: #ff9e64;
+  color: @warning;
 }
 
 #custom-stream_status.down {
-  color: #f7768e;
+  color: @error;
 }
 
 #network {
@@ -98,15 +98,15 @@
 }
 
 #battery.charging {
-  color: #a6d189;
+  color: @success;
 }
 
 #battery.warning:not(.charging) {
-  color: #e78284;
+  color: @warning;
 }
 
 #backlight {
-  color: #e5c890;
+  color: @warning;
 }
 
 #backlight,

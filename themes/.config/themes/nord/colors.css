@@ -13,6 +13,8 @@
 @define-color inverse_primary #81A1C1;
 @define-color tertiary #8FBCBB;
 @define-color error #BF616A;
+@define-color warning #EBCB8B;
+@define-color success #A3BE8C;
 
 @define-color hover #D08770;
 @define-color selected #434C5E;
