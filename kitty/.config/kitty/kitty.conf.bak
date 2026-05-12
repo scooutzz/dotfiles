@@ -28,6 +28,6 @@ show_window_riseze_notification no
 clipboard_control write-clipboard write-primary read-clipboard read-primary
 
 # BEGIN_KITTY_THEME
-# Tokyo Night
+# Catppuccin-Mocha
 include current-theme.conf
 # END_KITTY_THEME
