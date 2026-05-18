@@ -1,0 +1,1 @@
+/home/relaxou/.config/themes/catppuccin-mocha/colors-hyprland.lua
