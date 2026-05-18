@@ -28,6 +28,20 @@ source ~/.zsh_profile
 # Starship
 export STARSHIP_CONFIG="$HOME/.config/starship/minimal.toml"
 eval "$(starship init zsh)"
+
+# Define the transient behavior
+function zle-line-finish() {
+	# Change the prompt to a minimal version when Enter is pressed
+	PROMPT=$(starship module character)
+	zle .reset-prompt
+}
+zle -N zle-line-finish
+
+# Reset to full Starship prompt for the next line
+function precmd() {
+	PROMPT='$(starship prompt)'
+}
+
 # Zoxide
 eval "$(zoxide init zsh)"
 
