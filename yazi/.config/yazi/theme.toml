@@ -1,6 +1,7 @@
 # A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
-"$schema" = "https://yazi-rs.github.io/schemas/theme.json"
+# "$schema" = "https://yazi-rs.github.io/schemas/theme.json"
+#:schema https://yazi-rs.github.io/schemas/theme.json
 
 
 [flavor]
@@ -170,16 +171,16 @@ rules = [
 	# { mime = "inode/x-empty", fg = "red" },
 
 	# Special files
-	{ name = "*", is = "orphan", bg = "red" },
-	{ name = "*", is = "exec"  , fg = "blue" },
+	{ url = "*", is = "orphan", bg = "red" },
+	{ url = "*", is = "exec"  , fg = "blue" },
 
 	# Dummy files
-	{ name = "*", is = "dummy", bg = "red" },
-	{ name = "*/", is = "dummy", bg = "red" },
+	{ url = "*", is = "dummy", bg = "red" },
+	{ url = "*/", is = "dummy", bg = "red" },
 
 	# Fallback
-	# { name = "*", fg = "white" },
-	{ name = "*/", fg = "blue" }
+	# { url = "*", fg = "white" },
+	{ url = "*/", fg = "blue" }
 ]
 
 
