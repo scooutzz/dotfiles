@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+program=$1
+
+hyprctl dispatch 'hl.dsp.exec_cmd("'"$program"'")'
+swaync-client -cp
