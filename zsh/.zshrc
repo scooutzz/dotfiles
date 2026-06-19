@@ -1,53 +1,101 @@
-# Oh My ZSH
-export ZSH="$HOME/.oh-my-zsh"
-# ZSH_THEME="robbyrussell"
+# Options
+setopt auto_cd
+setopt extended_glob
+setopt notify
+setopt interactive_comments
+setopt complete_in_word
+setopt always_to_end
+setopt auto_menu
 
-plugins=(
-	git
-	sudo
-	history
-	encode64
-	zoxide
-	vi-mode
-	zsh-autosuggestions
-	zsh-syntax-highlighting
-)
+# History
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt share_history
 
-source $ZSH/oh-my-zsh.sh
+# Completions
+autoload -Uz compinit
+if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then compinit; else compinit -C; fi
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' list-suffixes true
+zstyle ':completion:*' expand prefix suffix
 
-# NVM
+# Environment & Paths
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-# Path Configuration
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
 export PATH="$PATH:$HOME/.local/bin:$HOME/.local/share/relaxou/bin/"
-
 source ~/.zsh_profile
 
-# Starship
+# Sesh & Zsh Vi-Mode
+function sesh-sessions() {
+  local session
+  session=$(
+    sesh list --icons | fzf \
+      --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
+      --header '  ^a all ^t tmux ^g configs ^x zoxide ^f find' \
+      --bind 'tab:down,btab:up' \
+      --bind 'ctrl-a:change-prompt(⚡  )+reload(sesh list --icons)' \
+      --bind 'ctrl-t:change-prompt(🪟  )+reload(sesh list -t --icons)' \
+      --bind 'ctrl-g:change-prompt(⚙️  )+reload(sesh list -c --icons)' \
+      --bind 'ctrl-x:change-prompt(📁  )+reload(sesh list -z --icons)' \
+      --bind 'ctrl-f:change-prompt(🔎  )+reload(fd -H -d 2 -t d -E .Trash . ~)' \
+      --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(⚡  )+reload(sesh list --icons)' \
+      --preview-window 'right:55%' \
+      --preview 'sesh preview {}'
+  )
+  [[ -z "$session" ]] && return
+  BUFFER="sesh connect \"$session\""
+  zle accept-line
+}
+zle -N sesh-sessions
+
+function zvm_config() {
+  ZVM_LAZY_KEYBINDINGS=false
+}
+
+function zvm_after_init() {
+  bindkey '^R' history-incremental-search-backward
+  bindkey '^f' sesh-sessions
+
+  # Search History (Seta pra cima/baixo baseada no prefixo)
+  bindkey '^[[A' history-search-backward
+  bindkey '^[OA' history-search-backward
+  bindkey '^[[B' history-search-forward
+  bindkey '^[OB' history-search-forward
+}
+
+function zvm_after_select_vi_mode() {
+  case $ZVM_MODE in
+  $ZVM_MODE_NORMAL) PROMPT=$(starship prompt | sed 's/❯/❮/g') ;;
+  *) PROMPT='$(starship prompt)' ;;
+  esac
+  zle reset-prompt
+}
+
+# Tools Init & Starship
+eval "$(zoxide init zsh)"
+
 export STARSHIP_CONFIG="$HOME/.config/starship/minimal.toml"
 eval "$(starship init zsh)"
 
-# Define the transient behavior
 function zle-line-finish() {
-	# Change the prompt to a minimal version when Enter is pressed
-	PROMPT=$(starship module character)
-	zle .reset-prompt
+  PROMPT=$(starship module character)
+  zle .reset-prompt
 }
 zle -N zle-line-finish
 
-# Reset to full Starship prompt for the next line
 function precmd() {
-	PROMPT='$(starship prompt)'
+  PROMPT='$(starship prompt)'
 }
 
-# Zoxide
-eval "$(zoxide init zsh)"
-
-# bun completions
-[ -s "/home/relaxou/.bun/_bun" ] && source "/home/relaxou/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+# Plugin Manager
+eval "$(sheldon source)"
