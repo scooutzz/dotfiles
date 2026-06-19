@@ -2,46 +2,45 @@
 # Theme Switcher
 
 THEMES=(
-	"rose-pine"
-	"tokyo-night"
-	"catppuccinno-mocha"
-	"gruvbox"
-	"everforest"
-	"nord"
+  "rose-pine"
+  "tokyo-night"
+  "catppuccinno-mocha"
+  "gruvbox"
+  "everforest"
+  "nord"
 )
 
 function list_themes() {
-	for theme in "${THEMES[@]}"; do
-		echo "  - $theme"
-	done
+  for theme in "${THEMES[@]}"; do
+    echo "  - $theme"
+  done
 }
 
 if [ -z "$1" ]; then
-	echo "Use: $0 <theme>"
-	echo "Available Themes:"
-	for theme in "${THEMES[@]}"; do
-		echo "  - $theme"
-	done
-	exit 1
+  echo "Use: $0 <theme>"
+  echo "Available Themes:"
+  for theme in "${THEMES[@]}"; do
+    echo "  - $theme"
+  done
+  exit 1
 fi
 
 # Mapping
 # Kitty | Neovim
 declare -A THEME_MAP=(
-	["rose-pine"]="Rosé Pine | rose-pine"
-	["tokyo-night"]="Tokyo Night | tokyonight-night"
-	["catppuccin-mocha"]="Catppuccin-Mocha | catppuccin-mocha"
-	["gruvbox"]="Gruvbox Dark | gruvbox"
-	["everforest"]="Everforest Dark Medium | everforest"
-	["nord"]="Nord | nord"
-)
+  ["rose-pine"]="Rosé Pine | rose-pine"
+  ["tokyo-night"]="Tokyo Night | tokyonight-night"
+  ["catppuccin-mocha"]="Catppuccin-Mocha | catppuccin-mocha"
+  ["gruvbox"]="Gruvbox Dark | gruvbox"
+  ["everforest"]="Everforest Dark Medium | everforest"
+  ["nord"]="Nord | nord")
 
 THEME="$1"
 
 if [ -z "${THEME_MAP[$THEME]}" ]; then
-	echo "Theme '$THEME' not configured yet... Try one of the following:"
-	list_themes
-	exit 1
+  echo "Theme '$THEME' not configured yet... Try one of the following:"
+  list_themes
+  exit 1
 fi
 
 IFS='|' read -r KITTY_THEME NVIM_THEME <<<"${THEME_MAP[$THEME]}"
@@ -49,32 +48,44 @@ KITTY_THEME=$(echo "$KITTY_THEME" | xargs)
 NVIM_THEME=$(echo "$NVIM_THEME" | xargs)
 
 if [[ -n "$KITTY_THEME" ]]; then
-	echo "Updating Kitty..."
-	kitty +kitten themes "$KITTY_THEME"
-	kill -SIGUSR1 $(pgrep kitty)
+  echo "Updating Kitty..."
+  kitty +kitten themes "$KITTY_THEME"
+  kill -SIGUSR1 $(pgrep kitty)
 fi
 
 if [[ -n "$NVIM_THEME" ]]; then
-	echo "Updating Neovim..."
-	echo "$NVIM_THEME" >"$HOME/.local/state/nvim/current-theme"
-	while IFS= read -r server; do
-		nvim --server "$server" --remote-send "<Esc>:colorscheme $NVIM_THEME<CR>"
-	done < <(find "/run/user/$(id -u)" -name "nvim.*.0" 2>/dev/null)
+  echo "Updating Neovim..."
+  echo "$NVIM_THEME" >"$HOME/.local/state/nvim/current-theme"
+  while IFS= read -r server; do
+    nvim --server "$server" --remote-send "<Esc>:colorscheme $NVIM_THEME<CR>"
+  done < <(find "/run/user/$(id -u)" -name "nvim.*.0" 2>/dev/null)
 fi
 
 THEME_DIR="$HOME/.config/themes/$THEME"
 
 if [[ ! -d "$THEME_DIR" ]]; then
-	notify-send "Theme Switcher" "Theme directory for theme '$THEME' does not exist." --icon=dialog-warning
-	exit 1
+  notify-send "Theme Switcher" "Theme directory for theme '$THEME' does not exist." --icon=dialog-warning
+  exit 1
 fi
 
 # Link Waybar
 ln -sf "$THEME_DIR/colors.css" "$HOME/.config/waybar/colors.css"
-pkill waybar
-sleep 0.1
-waybar &
-disown
+
+# Link Swaync
+# ln -sf "$THEME_DIR/colors.css" "$HOME/.config/swaync/colors/colors.css"
+
+# Reload Waybar / Swaync
+# bash -c "$HOME/.config/waybar/scripts/reload"
+
+# Reload Quickshell
+cp "$THEME_DIR/theme.json" "$HOME/.config/quickshell/theme.json"
+# ln -sf "$THEME_DIR/Theme.qml" "$HOME/.config/quickshell/Theme.qml"
+# cp "$THEME_DIR/Theme.qml" "$HOME/.config/quickshell/Theme.qml"
+# quickshell kill
+# nohup quickshell >/dev/null 2>&1 &
+
+# touch "$HOME/.config/quickshell/shell.qml"
+# cp -f "$THEME_DIR/Theme.qml" "$HOME/.config/quickshell/Theme.qml"
 
 # Link Hyprland
 ln -sf "$THEME_DIR/colors-hyprland.conf" "$HOME/.config/hypr/ui/colors.conf"
@@ -90,9 +101,8 @@ matugenMagick "$WALL"
 sed -i "s|^\$image = .*|\$image = $WALL|" "$HOME/.config/hypr/ui/image.conf"
 # sed -i "s|.*|return \"$WALL\"|" "$HOME/.config/hypr/ui/image.lua"
 
-# Link Swaync
-ln -sf "$THEME_DIR/colors.css" "$HOME/.config/swaync/nc/colors.css"
-reload-swaync
-
 # Link Rofi
 ln -sf "$THEME_DIR/colors.rasi" "$HOME/.config/rofi/colors/colors.rasi"
+
+# Notify theme switched
+notify-send "Theme Switcher" "Switched to theme '$THEME'." --icon=dialog-information
