@@ -1,5 +1,6 @@
 local home = os.getenv("HOME")
 local scripts = home .. "/.config/hypr/scripts"
+local waybarScripts = home .. "/.config/waybar/scripts"
 local rofiScripts = home .. "/.config/rofi/scripts"
 
 -- Programs
@@ -29,7 +30,7 @@ hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(terminal .. " -e " .. fileManager))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("hyprpicker -a"))
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("pkill waybar; waybar &"))
+hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(waybarScripts .. "/reload"))
 
 -- Custom rofi launchers
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(rofiScripts .. "/wallSelect.sh"))
@@ -118,3 +119,6 @@ hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
+
+-- Quickshell
+hl.bind(mainMod .. " + Escape", hl.dsp.global("quickshell:toggle_power"))

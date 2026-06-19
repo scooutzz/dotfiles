@@ -46,7 +46,16 @@ hl.window_rule({
 hl.window_rule({
 	name = "no-transparency",
 	match = {
-		class = "^(zoom|vlc|mpv|org.kde.kdenlive|com.obsproject.Studio|com.github.PintaProject.Pinta|imv|org.gnome.NautilusPreviewer|vivaldi-stable)$",
+		class = "^(zoom|vlc|mpv|org.kde.kdenlive|com.obsproject.Studio|com.github.PintaProject.Pinta|imv|org.gnome.NautilusPreviewer)$",
+	},
+	opacity = "1.0 1.0",
+})
+
+hl.window_rule({
+	name = "no-yt-transparency",
+	match = {
+		class = ".*vivaldi.*",
+		title = ".*[yY]ou[tT]ube.*",
 	},
 	opacity = "1.0 1.0",
 })
@@ -68,6 +77,16 @@ hl.window_rule({
 	float = true,
 	center = true,
 	size = { "1100", "700" },
+})
+
+hl.window_rule({
+	name = "btop",
+	match = {
+		class = "btop",
+	},
+	float = true,
+	center = true,
+	size = { "1400", "800" },
 })
 
 hl.window_rule({
