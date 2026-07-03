@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-pkill swaync
-swaync >/dev/null 2>&1 &
-
-sleep 0.5
-
-notify-send "Hello from swaync" "Swaync has been reloaded successfully. Enjoy your enhanced window management experience!" --icon=dialog-information
