@@ -24,16 +24,15 @@ zstyle ':completion:*' list-suffixes true
 zstyle ':completion:*' expand prefix suffix
 
 # Environment & Paths
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 export PATH="$PATH:$HOME/.local/bin:$HOME/.local/share/relaxou/bin/"
 source ~/.zsh_profile
+
+# Fast Node Manager (fnm)
+eval "$(fnm env --use-on-cd --shell zsh)"
 
 # Sesh & Zsh Vi-Mode
 function sesh-sessions() {
@@ -60,25 +59,23 @@ zle -N sesh-sessions
 
 function zvm_config() {
   ZVM_LAZY_KEYBINDINGS=false
+  ZVM_INIT_MODE=sourcing
+  ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
 }
 
 function zvm_after_init() {
   bindkey '^R' history-incremental-search-backward
   bindkey '^f' sesh-sessions
 
-  # Search History (Seta pra cima/baixo baseada no prefixo)
-  bindkey '^[[A' history-search-backward
-  bindkey '^[OA' history-search-backward
-  bindkey '^[[B' history-search-forward
-  bindkey '^[OB' history-search-forward
-}
+  # Arrow keys in Insert Mode
+  bindkey '^[[A' history-beginning-search-backward
+  bindkey '^[OA' history-beginning-search-backward
+  bindkey '^[[B' history-beginning-search-forward
+  bindkey '^[OB' history-beginning-search-forward
 
-function zvm_after_select_vi_mode() {
-  case $ZVM_MODE in
-  $ZVM_MODE_NORMAL) PROMPT=$(starship prompt | sed 's/❯/❮/g') ;;
-  *) PROMPT='$(starship prompt)' ;;
-  esac
-  zle reset-prompt
+  # 'k' and 'j' keys filtering by prefix in Normal Mode
+  bindkey -M vicmd 'k' history-beginning-search-backward
+  bindkey -M vicmd 'j' history-beginning-search-forward
 }
 
 # Tools Init & Starship
@@ -86,16 +83,6 @@ eval "$(zoxide init zsh)"
 
 export STARSHIP_CONFIG="$HOME/.config/starship/minimal.toml"
 eval "$(starship init zsh)"
-
-function zle-line-finish() {
-  PROMPT=$(starship module character)
-  zle .reset-prompt
-}
-zle -N zle-line-finish
-
-function precmd() {
-  PROMPT='$(starship prompt)'
-}
 
 # Plugin Manager
 eval "$(sheldon source)"
