@@ -6,6 +6,7 @@ THEMES=(
   "tokyo-night"
   "catppuccinno-mocha"
   "gruvbox"
+  "gruvbox-material"
   "everforest"
   "nord"
 )
@@ -31,7 +32,8 @@ declare -A THEME_MAP=(
   ["rose-pine"]="Rosé Pine | rose-pine"
   ["tokyo-night"]="Tokyo Night | tokyonight-night"
   ["catppuccin-mocha"]="Catppuccin-Mocha | catppuccin-mocha"
-  ["gruvbox"]="Gruvbox Dark | gruvbox"
+  ["gruvbox"]="Gruvbox Dark | gruvbox-material"
+  ["gruvbox-material"]="Gruvbox Material Dark Medium | gruvbox-material"
   ["everforest"]="Everforest Dark Medium | everforest"
   ["nord"]="Nord | nord")
 
@@ -49,15 +51,15 @@ NVIM_THEME=$(echo "$NVIM_THEME" | xargs)
 
 if [[ -n "$KITTY_THEME" ]]; then
   echo "Updating Kitty..."
-  kitty +kitten themes "$KITTY_THEME"
+  kitty +kitten themes --dump-theme "$KITTY_THEME" >"$HOME/.config/kitty/current-theme.conf"
   kill -SIGUSR1 $(pgrep kitty)
 fi
 
 if [[ -n "$NVIM_THEME" ]]; then
   echo "Updating Neovim..."
-  echo "$NVIM_THEME" >"$HOME/.local/state/nvim/current-theme"
+  echo "$THEME" >"$HOME/.local/state/nvim/current-theme"
   while IFS= read -r server; do
-    nvim --server "$server" --remote-send "<Esc>:colorscheme $NVIM_THEME<CR>"
+    nvim --server "$server" --remote-expr "execute('colorscheme $NVIM_THEME')"
   done < <(find "/run/user/$(id -u)" -name "nvim.*.0" 2>/dev/null)
 fi
 
@@ -71,21 +73,12 @@ fi
 # Link Waybar
 ln -sf "$THEME_DIR/colors.css" "$HOME/.config/waybar/colors.css"
 
-# Link Swaync
-# ln -sf "$THEME_DIR/colors.css" "$HOME/.config/swaync/colors/colors.css"
-
-# Reload Waybar / Swaync
-# bash -c "$HOME/.config/waybar/scripts/reload"
+# Link Foot
+ln -sf "$THEME_DIR/colors.ini" "$HOME/.config/foot/colors.ini"
 
 # Reload Quickshell
 cp "$THEME_DIR/theme.json" "$HOME/.config/quickshell/theme.json"
-# ln -sf "$THEME_DIR/Theme.qml" "$HOME/.config/quickshell/Theme.qml"
-# cp "$THEME_DIR/Theme.qml" "$HOME/.config/quickshell/Theme.qml"
-# quickshell kill
-# nohup quickshell >/dev/null 2>&1 &
-
-# touch "$HOME/.config/quickshell/shell.qml"
-# cp -f "$THEME_DIR/Theme.qml" "$HOME/.config/quickshell/Theme.qml"
+echo "$1" >~/.cache/current_theme
 
 # Link Hyprland
 ln -sf "$THEME_DIR/colors-hyprland.conf" "$HOME/.config/hypr/ui/colors.conf"
@@ -96,10 +89,8 @@ hyprctl reload
 ln -sf -n "$THEME_DIR/backgrounds" "$HOME/.config/backgrounds"
 WALLS_DIR="$THEME_DIR/backgrounds"
 WALL=$(find "$WALLS_DIR" -maxdepth 1 -type f | sort | head -n 1)
-awww img "$WALL" --transition-type outer --transition-step 90 --transition-pos 0.854,0.977
-matugenMagick "$WALL"
+awww img "$WALL" --transition-type fade --transition-step 90 --transition-duration 0.5
 sed -i "s|^\$image = .*|\$image = $WALL|" "$HOME/.config/hypr/ui/image.conf"
-# sed -i "s|.*|return \"$WALL\"|" "$HOME/.config/hypr/ui/image.lua"
 
 # Link Rofi
 ln -sf "$THEME_DIR/colors.rasi" "$HOME/.config/rofi/colors/colors.rasi"
