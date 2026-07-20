@@ -1,4 +1,6 @@
-local colors = require("ui.colors")
+local home = os.getenv("HOME")
+package.path = package.path .. ";" .. home .. "/.config/current-theme/?.lua"
+local colors = require("colors-hyprland")
 
 hl.config({
 	general = {

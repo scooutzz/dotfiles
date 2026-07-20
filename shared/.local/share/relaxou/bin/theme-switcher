@@ -70,30 +70,18 @@ if [[ ! -d "$THEME_DIR" ]]; then
   exit 1
 fi
 
-# Link Waybar
-ln -sf "$THEME_DIR/colors.css" "$HOME/.config/waybar/colors.css"
-
-# Link Foot
-ln -sf "$THEME_DIR/colors.ini" "$HOME/.config/foot/colors.ini"
+ln -sfn "$THEME_DIR" "$HOME/.config/current-theme"
 
 # Reload Quickshell
-cp "$THEME_DIR/theme.json" "$HOME/.config/quickshell/theme.json"
 echo "$1" >~/.cache/current_theme
 
-# Link Hyprland
-ln -sf "$THEME_DIR/colors-hyprland.conf" "$HOME/.config/hypr/ui/colors.conf"
-ln -sf "$THEME_DIR/colors-hyprland.lua" "$HOME/.config/hypr/ui/colors.lua"
+# Reload Hyprland
 hyprctl reload
 
-# Link Backgrounds
-ln -sf -n "$THEME_DIR/backgrounds" "$HOME/.config/backgrounds"
-WALLS_DIR="$THEME_DIR/backgrounds"
+WALLS_DIR="$HOME/.config/current-theme/backgrounds"
 WALL=$(find "$WALLS_DIR" -maxdepth 1 -type f | sort | head -n 1)
 awww img "$WALL" --transition-type fade --transition-step 90 --transition-duration 0.5
 sed -i "s|^\$image = .*|\$image = $WALL|" "$HOME/.config/hypr/ui/image.conf"
 
-# Link Rofi
-ln -sf "$THEME_DIR/colors.rasi" "$HOME/.config/rofi/colors/colors.rasi"
-
 # Notify theme switched
-notify-send "Theme Switcher" "Switched to theme '$THEME'." --icon=dialog-information
+notify-send -i applications-graphics "Theme Switcher" "Switched to theme '$THEME'."
