@@ -82,6 +82,3 @@ WALLS_DIR="$HOME/.config/current-theme/backgrounds"
 WALL=$(find "$WALLS_DIR" -maxdepth 1 -type f | sort | head -n 1)
 awww img "$WALL" --transition-type fade --transition-step 90 --transition-duration 0.5
 sed -i "s|^\$image = .*|\$image = $WALL|" "$HOME/.config/hypr/ui/image.conf"
-
-# Notify theme switched
-notify-send -i applications-graphics "Theme Switcher" "Switched to theme '$THEME'."
