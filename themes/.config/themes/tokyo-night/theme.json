@@ -2,11 +2,15 @@
   "bg": "#1a1b26",
   "fg": "#c0caf5",
 
-  "surface": "#24283b",
-  "surface_alpha": "#24283b80",
+  "surface": "#1f2335",
+  "surface_alpha": "#1f233580",
+  "surface_dim": "#16161e",
   "on_surface": "#c0caf5",
   "on_surface_variant": "#565f89",
-  "surface_container_highest": "#292e42",
+  "surface_container_low": "#1a1b26",
+  "surface_container": "#25273b",
+  "surface_container_high": "#2a2f44",
+  "surface_container_highest": "#3b4261",
   "surface_bright": "#414868",
 
   "primary": "#7aa2f7",
@@ -14,11 +18,11 @@
   "on_primary": "#16161e",
   "inverse_primary": "#bb9af7",
   "secondary": "#7dcfff",
-  "tertiary": "#9ece6a",
+  "tertiary": "#bb9af7",
   "error": "#f7768e",
   "warning": "#e0af68",
   "success": "#9ece6a",
 
   "selected": "#33467c",
-  "hover": "#292e42"
+  "hover": "#7dcfff"
 }
