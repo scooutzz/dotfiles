@@ -1,7 +1,7 @@
 hl.on("hyprland.start", function()
 	-- Firts login greetd + hyprlock
 	hl.exec_cmd("hyprlock")
-	hl.exec_cmd("hypridle")
+	-- hl.exec_cmd("hypridle")
 	hl.exec_cmd("qs")
 	hl.exec_cmd("awww-daemon")
 	hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")

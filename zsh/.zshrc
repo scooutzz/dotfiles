@@ -6,6 +6,7 @@ setopt interactive_comments
 setopt complete_in_word
 setopt always_to_end
 setopt auto_menu
+setopt prompt_subst
 
 # History
 HISTFILE=~/.zsh_history
@@ -34,29 +35,6 @@ source ~/.zsh_profile
 # Fast Node Manager (fnm)
 eval "$(fnm env --use-on-cd --shell zsh)"
 
-# Sesh & Zsh Vi-Mode
-function sesh-sessions() {
-  local session
-  session=$(
-    sesh list --icons | fzf \
-      --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
-      --header '  ^a all ^t tmux ^g configs ^x zoxide ^f find' \
-      --bind 'tab:down,btab:up' \
-      --bind 'ctrl-a:change-prompt(⚡  )+reload(sesh list --icons)' \
-      --bind 'ctrl-t:change-prompt(🪟  )+reload(sesh list -t --icons)' \
-      --bind 'ctrl-g:change-prompt(⚙️  )+reload(sesh list -c --icons)' \
-      --bind 'ctrl-x:change-prompt(📁  )+reload(sesh list -z --icons)' \
-      --bind 'ctrl-f:change-prompt(🔎  )+reload(fd -H -d 2 -t d -E .Trash . ~)' \
-      --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(⚡  )+reload(sesh list --icons)' \
-      --preview-window 'right:55%' \
-      --preview 'sesh preview {}'
-  )
-  [[ -z "$session" ]] && return
-  BUFFER="sesh connect \"$session\""
-  zle accept-line
-}
-zle -N sesh-sessions
-
 function zvm_config() {
   ZVM_LAZY_KEYBINDINGS=false
   ZVM_INIT_MODE=sourcing
@@ -65,7 +43,7 @@ function zvm_config() {
 
 function zvm_after_init() {
   bindkey '^R' history-incremental-search-backward
-  bindkey '^f' sesh-sessions
+  bindkey -s '^f' "tmux-sessionizer\n"
 
   # Arrow keys in Insert Mode
   bindkey '^[[A' history-beginning-search-backward
@@ -81,8 +59,11 @@ function zvm_after_init() {
 # Tools Init & Starship
 eval "$(zoxide init zsh)"
 
-export STARSHIP_CONFIG="$HOME/.config/starship/minimal.toml"
-eval "$(starship init zsh)"
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git svn
+zstyle ':vcs_info:git*' formats '%F{magenta}%b%f '
+precmd() { vcs_info; }
+prompt='%F{green}%n%f %F{blue}%(3~|../%2~|%2~)%f ${vcs_info_msg_0_}%F{white}$%f '
 
 # Plugin Manager
 eval "$(sheldon source)"

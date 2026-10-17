@@ -1,17 +1,11 @@
-# ------------------------------
-# 🎨 Aparência & Tema
-# ------------------------------
-# theme = "rose-pine"
+theme = rose-pine
 background-opacity = 0.75
 gtk-titlebar = false
 maximize = true
 confirm-close-surface = false
 
-# ------------------------------
-# 🔤 Fonte
-# ------------------------------
 font-family = "JetBrainsMono Nerd Font"
 font-size = 14
 font-feature = ["+liga", "+calt"]
 
-config-file = /home/relaxou/.cache/wal/ghostty.conf
+config-file = ?auto/theme.ghostty

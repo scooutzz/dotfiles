@@ -82,3 +82,16 @@ WALLS_DIR="$HOME/.config/current-theme/backgrounds"
 WALL=$(find "$WALLS_DIR" -maxdepth 1 -type f | sort | head -n 1)
 awww img "$WALL" --transition-type fade --transition-step 90 --transition-duration 0.5
 sed -i "s|^\$image = .*|\$image = $WALL|" "$HOME/.config/hypr/ui/image.conf"
+
+# Apply GTK/Qt/Kvantum color files from the current theme
+THEME_SRC="$HOME/.config/current-theme"
+if [[ -f "$THEME_SRC/gtk.css" ]]; then
+  cp -f "$THEME_SRC/gtk.css" "$HOME/.config/gtk-3.0/gtk.css"
+  cp -f "$THEME_SRC/gtk.css" "$HOME/.config/gtk-4.0/gtk.css"
+  cp -f "$THEME_SRC/qtct.conf" "$HOME/.config/qt5ct/colors/matugen-qt5ct.conf"
+  cp -f "$THEME_SRC/qtct.conf" "$HOME/.config/qt6ct/colors/matugen-qt6ct.conf"
+  cp -f "$THEME_SRC/kvantum.kvconfig" "$HOME/.config/Kvantum/matugen/matugen.kvconfig"
+  notify-send "Theme Switcher" "GTK/Qt colors updated to '$THEME'. Reopen open apps to apply." --icon=preferences-desktop-theme
+else
+  echo "Warning: $THEME_SRC/gtk.css not found, skipping GTK/Qt color sync."
+fi

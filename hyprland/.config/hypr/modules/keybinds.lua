@@ -4,7 +4,7 @@ local scripts = home .. "/.config/hypr/scripts"
 -- Programs
 local terminal = "kitty"
 local fileManager = "yazi"
-local browser = "vivaldi-stable"
+local browser = "brave-origin"
 
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
@@ -60,10 +60,10 @@ for i = 1, 10 do
 end
 
 -- Resize focus window
-hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.resize({ x = -50, y = 0 }))
-hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.resize({ x = 0, y = 50 }))
-hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.resize({ x = 0, y = -50 }))
-hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.resize({ x = 50, y = 0 }))
+hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.resize({ x = -100, y = 0, relative = true }))
+hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.resize({ x = 0, y = 100, relative = true }))
+hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.resize({ x = 0, y = -100, relative = true }))
+hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.resize({ x = 100, y = 0, relative = true }))
 
 -- Move focus window
 hl.bind(mainMod .. " + CTRL + H", hl.dsp.window.move({ direction = "left" }))

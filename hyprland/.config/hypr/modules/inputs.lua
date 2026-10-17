@@ -1,13 +1,15 @@
 hl.config({
 	input = {
-		kb_layout = "us,us",
-		kb_variant = ",intl",
+		-- kb_layout = "us,us",
+		-- kb_variant = ",intl",
+		-- kb_options = "grp:alt_shift_toggle",
+		kb_layout = "us",
+		kb_options = "caps:escape,compose:ralt,shift:both_capslock_cancel",
 		kb_model = "",
-		kb_options = "grp:alt_shift_toggle",
 		kb_rules = "",
 
-		repeat_rate = 35,
-		repeat_delay = 300,
+		repeat_rate = 40,
+		repeat_delay = 250,
 
 		follow_mouse = 1,
 		sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.

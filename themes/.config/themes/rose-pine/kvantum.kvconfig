@@ -1,0 +1,27 @@
+[%General]
+author=rose-pine
+comment=Rose Pine colors
+x11drag=menubar_and_primary_toolbar
+composite=true
+
+[GeneralColors]
+window.color=#191723
+base.color=#191723
+alt.base.color=#ebbcba
+button.color=#c4a7e7
+light.color=#26233a
+mid.light.color=#26233a
+dark.color=#0e0c1c
+mid.color=#1a1828
+highlight.color=#ebbcba
+inactive.highlight.color=#9c8a8a
+text.color=#e0def4
+window.text.color=#e0def4
+button.text.color=#e0def4
+disabled.text.color=#6e6a86
+tooltip.text.color=#e0def4
+highlight.text.color=#191723
+link.color=#ebbcba
+link.visited.color=#c4a7e7
+progress.indicator.text.color=#e0def4
+tooltip.base.color=#1f1c2e

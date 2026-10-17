@@ -1,0 +1,67 @@
+/* Rose Pine — GTK 3 theme override for Adwaita-dark */
+
+@define-color bg #191723;
+@define-color fg #e0def4;
+@define-color accent #ebbcba;
+@define-color tertiary #c4a7e7;
+@define-color error #eb6f92;
+@define-color warning #f6c177;
+@define-color success #9ccfd8;
+
+/* Window / View / Card / Sidebar */
+@define-color window_bg_color @bg;
+@define-color window_fg_color @fg;
+@define-color view_bg_color @bg;
+@define-color view_fg_color @fg;
+@define-color card_bg_color shade(@bg, 1.4);
+@define-color card_fg_color @fg;
+@define-color sidebar_bg_color shade(@bg, 1.2);
+@define-color sidebar_fg_color @fg;
+@define-color secondary_sidebar_bg_color @sidebar_bg_color;
+@define-color sidebar_backdrop_color @sidebar_bg_color;
+@define-color secondary_sidebar_backdrop_color @sidebar_bg_color;
+
+/* Headerbar */
+@define-color headerbar_bg_color @window_bg_color;
+@define-color headerbar_fg_color @window_fg_color;
+@define-color headerbar_border_color @window_bg_color;
+@define-color headerbar_backdrop_color shade(@window_bg_color, 0.95);
+@define-color headerbar_shade_color @window_bg_color;
+
+/* Dialog / Popover */
+@define-color dialog_bg_color @card_bg_color;
+@define-color dialog_fg_color @card_fg_color;
+@define-color popover_bg_color @card_bg_color;
+@define-color popover_fg_color @card_fg_color;
+@define-color card_shade_color rgba(0, 0, 0, 0.07);
+@define-color shade_color rgba(0, 0, 0, 0.36);
+@define-color scrollbar_outline_color rgba(139, 145, 152, 0.5);
+
+/* Accent (light pink -> use dark fg) */
+@define-color accent_color @accent;
+@define-color accent_bg_color @accent;
+@define-color accent_fg_color @bg;
+
+/* Status colors (use light fg on saturated bg) */
+@define-color destructive_color @error;
+@define-color destructive_bg_color @error;
+@define-color destructive_fg_color @fg;
+@define-color success_color @success;
+@define-color success_bg_color @success;
+@define-color success_fg_color @fg;
+@define-color warning_color @warning;
+@define-color warning_bg_color @warning;
+@define-color warning_fg_color @fg;
+@define-color error_color @error;
+@define-color error_bg_color @error;
+@define-color error_fg_color @fg;
+
+.navigation-sidebar {
+  background-color: @sidebar_bg_color;
+  color: @window_fg_color;
+}
+
+window.csd,
+window.csd decoration {
+  box-shadow: none;
+}

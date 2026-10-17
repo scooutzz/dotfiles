@@ -72,7 +72,11 @@ while [[ "$#" -gt 0 ]]; do
     echo "  -s, --session <name>   session command index."
     echo "  --vsplit               Create vertical split (horizontal layout) for session command"
     echo "  --hsplit               Create horizontal split (vertical layout) for session command"
+    echo "  list                   List tmux sessions and search-path directories (used by fzf bind)"
     exit 0
+    ;;
+  list)
+    list_mode=true
     ;;
   -s | --session)
     session_idx="$2"
@@ -313,12 +317,17 @@ handle_split_session_cmd() {
   fi
 }
 
+if [[ "$list_mode" == "true" ]]; then
+  find_dirs
+  exit 0
+fi
+
 if [[ ! -z $session_cmd ]]; then
   handle_session_cmd
 elif [[ ! -z $user_selected ]]; then
   selected="$user_selected"
 else
-  selected=$(find_dirs | fzf)
+  selected=$(find_dirs | fzf --bind 'ctrl-d:execute([[ {1} == "[TMUX]" ]] && tmux kill-session -t {2..})+reload(tmux-sessionizer list)')
 fi
 
 if [[ -z $selected ]]; then

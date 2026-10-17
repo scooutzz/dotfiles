@@ -2,7 +2,7 @@
 export XDG_CONFIG_HOME=$HOME/.config
 export EDITOR=nvim
 export VISUAL=nvim
-export TERMINAL=kitty
+# export TERMINAL=kitty
 
 # Neovim
 alias vim='nvim'
@@ -19,3 +19,6 @@ alias lta='lt -a'
 
 # File system
 alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
+
+# fastfetch -c examples/13
+nitch
